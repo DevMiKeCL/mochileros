@@ -28,7 +28,7 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>RUT</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[id]" required></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[rut]" required></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Nombre</b></div>
@@ -43,8 +43,16 @@
           <div class='col-md-3'><input type="text" class="form-control" name="datos[amaterno]" required></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Direccion</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[direccion]" required></div>
+          <div class='col-md-6'><b>Fecha de Nacimiento</b></div>
+          <div class='col-md-3'><input type="date" class="form-control" name="datos[fnac]" required></div>
+        </div>
+        <div class='row contenido2'>
+          <div class='col-md-6'><b>Email</b></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[email]" required></div>
+        </div>
+        <div class='row contenido2'>
+          <div class='col-md-6'><b>Contraseña</b></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[pass]" required></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Telefono</b></div>
@@ -54,6 +62,16 @@
           <div class='col-md-6'><b>Ciudad</b></div>
           <div class='col-md-3'>
             <select name="datos[ciudad]" class="form-control">
+              <option value="Coquimbo">Coquimbo</option>
+              <option value="La Serena">La Serena</option>
+              <option value="Ovalle">Ovalle</option>
+            </select>
+          </div>
+        </div>
+        <div class='row contenido2'>
+          <div class='col-md-6'><b>Comuna</b></div>
+          <div class='col-md-3'>
+            <select name="datos[comuna]" class="form-control">
               <option value="Coquimbo">Coquimbo</option>
               <option value="La Serena">La Serena</option>
               <option value="Ovalle">Ovalle</option>
@@ -72,8 +90,8 @@
       session_start();
       // capturamos los datos del post
       $cliente = $_POST['datos'];
-      $sql = "INSERT INTO `cliente` (`ID_CLIENTE`, `NOMBRE_CLIENTE`, `APATERNO_CLIENTE`, `AMATERNO_CLIENTE`, `DIRECCION_CLIENTE`, `TELEFONO_CLIENTE`, `CIUDAD_CLIENTE`)
-      VALUES ('$cliente[id]', '$cliente[nombre]', '$cliente[apaterno]', '$cliente[amaterno]', '$cliente[direccion]', '$cliente[telefono]', '$cliente[ciudad]')";
+      $sql = "INSERT INTO `Usuario` (`u_rut`, `u_nombre`, `u_apaterno`, `u_amaterno`, `u_ciudad`, `u_comuna`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`)
+      VALUES ('$cliente[rut]', '$cliente[nombre]', '$cliente[apaterno]', '$cliente[amaterno]', '$cliente[ciudad]', '$cliente[comuna]', '$cliente[telefono]', '$cliente[fnac]', '$cliente[email]', '$cliente[pass]')";
       echo "Usuario igresado";
       // se ejecuta y cierra la bbdd
       $conn->query($sql);
