@@ -84,7 +84,7 @@
         </div>
         <div class='row pie'>
           <div class='col-md-6'><b></b></div>
-          <div class='col-md-2'><button class="btn btn-primary btn-block" type="submit" name="crear_lugar">Crear Cliente</button></div>
+          <div class='col-md-2'><button class="btn btn-primary btn-block" type="submit" name="crear_cliente">Crear Cliente</button></div>
         </div>
       </form>
     <?php else:
