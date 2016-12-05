@@ -20,10 +20,10 @@
   </head>
   <body>
     <div class="container">
-    <?php if (!isset($_POST['crear_usuario'])): ?>
-      <form action="adduser.php" method="post">
+    <?php if (!isset($_POST['crear_cliente'])): ?>
+      <form action="addclient.php" method="post">
         <div class='row encabezado'>
-          <div class='col-md-6'><h3>Crear Usuario</h3></div>
+          <div class='col-md-6'><h3>Crear Cliente</h3></div>
           <div class='col-md-6'></div>
         </div>
         <div class='row contenido2'>
@@ -45,6 +45,10 @@
         <div class='row contenido2'>
           <div class='col-md-6'><b>Fecha de Nacimiento</b></div>
           <div class='col-md-3'><input type="date" class="form-control" name="datos[fnac]" required></div>
+        </div>
+        <div class='row contenido2'>
+          <div class='col-md-6'><b>Direccion</b></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[direccion]" required></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Email</b></div>
@@ -80,7 +84,7 @@
         </div>
         <div class='row pie'>
           <div class='col-md-6'><b></b></div>
-          <div class='col-md-2'><button class="btn btn-primary btn-block" type="submit" name="crear_usuario">Crear Usuario</button></div>
+          <div class='col-md-2'><button class="btn btn-primary btn-block" type="submit" name="crear_lugar">Crear Lugar</button></div>
         </div>
       </form>
     <?php else:
@@ -90,9 +94,9 @@
       session_start();
       // capturamos los datos del post
       $cliente = $_POST['datos'];
-      $sql = "INSERT INTO `Usuario` (`u_rut`, `u_nombre`, `u_apaterno`, `u_amaterno`, `u_ciudad`, `u_comuna`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`)
-      VALUES ('$cliente[rut]', '$cliente[nombre]', '$cliente[apaterno]', '$cliente[amaterno]', '$cliente[ciudad]', '$cliente[comuna]', '$cliente[telefono]', '$cliente[fnac]', '$cliente[email]', '$cliente[pass]')";
-      echo "Usuario igresado";
+      $sql = "INSERT INTO `Cliente` (`c_rut`, `c_nombre`, `c_apaterno`, `c_amaterno`, `c_direccion`, `c_ciudad`, `c_comuna`, `c_telefono`, `c_fnac`, `c_email`, `c_pass`)
+      VALUES ('$cliente[rut]', '$cliente[nombre]', '$cliente[apaterno]', '$cliente[amaterno]', '$cliente[direccion]', '$cliente[ciudad]', '$cliente[comuna]', '$cliente[telefono]', '$cliente[fnac]', '$cliente[email]', '$cliente[pass]')";
+      echo "Cliente igresado";
       // se ejecuta y cierra la bbdd
       $conn->query($sql);
       $conn->close();

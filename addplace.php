@@ -20,7 +20,7 @@
   </head>
   <body>
     <div class="container">
-    <?php if (!isset($_POST['crear_usuario'])): ?>
+    <?php if (!isset($_POST['crear_lugar'])): ?>
       <form action="adduser.php" method="post">
         <div class='row encabezado'>
           <div class='col-md-6'><h3>Crear Usuario</h3></div>
@@ -80,7 +80,7 @@
         </div>
         <div class='row pie'>
           <div class='col-md-6'><b></b></div>
-          <div class='col-md-2'><button class="btn btn-primary btn-block" type="submit" name="crear_usuario">Crear Usuario</button></div>
+          <div class='col-md-2'><button class="btn btn-primary btn-block" type="submit" name="crear_lugar">Crear Lugar</button></div>
         </div>
       </form>
     <?php else:
