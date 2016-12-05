@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <title>Formulario</title>
+    <title>Crear Lugar</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,42 +21,18 @@
   <body>
     <div class="container">
     <?php if (!isset($_POST['crear_lugar'])): ?>
-      <form action="adduser.php" method="post">
+      <form action="addplace.php" method="post">
         <div class='row encabezado'>
-          <div class='col-md-6'><h3>Crear Usuario</h3></div>
+          <div class='col-md-6'><h3>Crear Lugar</h3></div>
           <div class='col-md-6'></div>
-        </div>
-        <div class='row contenido2'>
-          <div class='col-md-6'><b>RUT</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[rut]" required></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Nombre</b></div>
           <div class='col-md-3'><input type="text" class="form-control" name="datos[nombre]" required></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Apellido Paterno</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[apaterno]" required></div>
-        </div>
-        <div class='row contenido2'>
-          <div class='col-md-6'><b>Apellido Materno</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[amaterno]" required></div>
-        </div>
-        <div class='row contenido2'>
-          <div class='col-md-6'><b>Fecha de Nacimiento</b></div>
-          <div class='col-md-3'><input type="date" class="form-control" name="datos[fnac]" required></div>
-        </div>
-        <div class='row contenido2'>
-          <div class='col-md-6'><b>Email</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[email]" required></div>
-        </div>
-        <div class='row contenido2'>
-          <div class='col-md-6'><b>Contraseña</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[pass]" required></div>
-        </div>
-        <div class='row contenido2'>
-          <div class='col-md-6'><b>Telefono</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[telefono]" required></div>
+          <div class='col-md-6'><b>direccion</b></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[direccion]" required></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Ciudad</b></div>
@@ -78,6 +54,34 @@
             </select>
           </div>
         </div>
+        <div class='row contenido2'>
+          <div class='col-md-6'><b>Telefono</b></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[telefno]" required></div>
+        </div>
+        <div class='row contenido2'>
+          <div class='col-md-6'><b>Facebook</b></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[facebook]" required></div>
+        </div>
+        <div class='row contenido2'>
+          <div class='col-md-6'><b>Twitter</b></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[twitter]" required></div>
+        </div>
+        <div class='row contenido2'>
+          <div class='col-md-6'><b>Whatsapp</b></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[whatsapp]" required></div>
+        </div>
+        <div class='row contenido2'>
+          <div class='col-md-6'><b>Servicios</b></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[servicios]" required></div>
+        </div>
+        <div class='row contenido2'>
+          <div class='col-md-6'><b>Descripcion</b></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[descripcion]" required></div>
+        </div>
+        <div class='row contenido2'>
+          <div class='col-md-6'><b>Cómo Llegar</b></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[comollegar]" required></div>
+        </div>
         <div class='row pie'>
           <div class='col-md-6'><b></b></div>
           <div class='col-md-2'><button class="btn btn-primary btn-block" type="submit" name="crear_lugar">Crear Lugar</button></div>
@@ -90,7 +94,7 @@
       session_start();
       // capturamos los datos del post
       $cliente = $_POST['datos'];
-      $sql = "INSERT INTO `Usuario` (`u_rut`, `u_nombre`, `u_apaterno`, `u_amaterno`, `u_ciudad`, `u_comuna`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`)
+      $sql = "INSERT INTO `Lugar` (`u_rut`, `u_nombre`, `u_apaterno`, `u_amaterno`, `u_ciudad`, `u_comuna`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`)
       VALUES ('$cliente[rut]', '$cliente[nombre]', '$cliente[apaterno]', '$cliente[amaterno]', '$cliente[ciudad]', '$cliente[comuna]', '$cliente[telefono]', '$cliente[fnac]', '$cliente[email]', '$cliente[pass]')";
       echo "Usuario igresado";
       // se ejecuta y cierra la bbdd
