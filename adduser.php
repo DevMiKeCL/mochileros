@@ -34,7 +34,7 @@
           <div class='col-md-6'></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>RUT</b></div>
+          <div class='col-md-6'><b>RUT </b></div>
             <div class="control-group">
               <div class="controls">
                 <div class='col-md-3'><input type="text" placeholder="12.345.678-9" class="form-control" name="datos[rut]" required/></div>
