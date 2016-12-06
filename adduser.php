@@ -35,13 +35,9 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>RUT</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[rut]" required>
             <div class="control-group">
-              <label class="control-label" for="inputEmail">RUT</label>
               <div class="controls">
-                <input type="text" placeholder="14.569.484-1" />
-                <span class="help-inline">RUT Chileno</span>
-              </div>
+                <div class='col-md-3'><input type="text" placeholder="12.345.678-9" class="form-control" name="datos[rut]" required/></div>
             </div>
           </div>
         </div>
@@ -123,5 +119,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="js/jquery.rut.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $("form#basico input").rut();
+      $("form#multiple-objetos input").rut({formatOn: 'keyup'});
+      $("form#formato-live input").rut({formatOn: 'keyup'});
+      $("form#validacion-live input").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".control-group").addClass("error")}).on('rutValido', function(){ $(this).parents(".control-group").removeClass("error")});
+      $("form#extraer-cuerpo input").rut().on('rutValido', function(e, rut){alert("Su RUT sin DV es " + rut);});
+      $("form#multiple-events input").rut({validateOn: 'keyup change'}).on('rutInvalido', function(){ $(this).parents(".control-group").addClass("error") }).on('rutValido', function(){ $(this).parents(".control-group").removeClass("error") });
+    });
+  </script>
   </body>
 </html>
