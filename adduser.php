@@ -28,7 +28,7 @@
   <body>
     <div class="container">
     <?php if (!isset($_POST['crear_usuario'])): ?>
-      <form action="adduser.php" method="post" id="validacion-live" class="form-horizontal">
+      <form action="adduser.php" method="post" class="form-horizontal">
         <div class='row encabezado'>
           <div class='col-md-6'><h3>Crear Usuario</h3></div>
           <div class='col-md-6'></div>
@@ -37,7 +37,7 @@
           <div class='col-md-6'><b>RUT </b></div>
             <div class="control-group">
               <div class="controls">
-                <div class='col-md-3'><input type="text" placeholder="12.345.678-9" class="form-control" name="datos[rut]" required/></div>
+                <div class='col-md-3'><input type="text" placeholder="12.345.678-9"  id="validacion-live" class="form-control" name="datos[rut]" required/></div>
             </div>
           </div>
         </div>
