@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <title>Formulario</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,14 +28,22 @@
   <body>
     <div class="container">
     <?php if (!isset($_POST['crear_usuario'])): ?>
-      <form action="adduser.php" method="post">
+      <form action="adduser.php" method="post" id="validacion-live" class="form-horizontal">
         <div class='row encabezado'>
           <div class='col-md-6'><h3>Crear Usuario</h3></div>
           <div class='col-md-6'></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>RUT</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[rut]" required></div>
+          <div class='col-md-3'><input type="text" class="form-control" name="datos[rut]" required>
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">RUT</label>
+              <div class="controls">
+                <input type="text" placeholder="14.569.484-1" />
+                <span class="help-inline">RUT Chileno</span>
+              </div>
+            </div>
+          </div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Nombre</b></div>
