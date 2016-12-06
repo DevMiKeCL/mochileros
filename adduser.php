@@ -28,7 +28,7 @@
   <body>
     <div class="container">
     <?php if (!isset($_POST['crear_usuario'])): ?>
-      <form action="adduser.php" method="post" class="form-horizontal">
+      <form action="adduser.php" method="post" id="validacion-live"  class="form-horizontal">
         <div class='row encabezado'>
           <div class='col-md-6'><h3>Crear Usuario</h3></div>
           <div class='col-md-6'></div>
@@ -37,7 +37,7 @@
           <div class='col-md-6'><b>RUT </b></div>
             <div class="control-group">
               <div class="controls">
-                <div class='col-md-3'><input type="text" placeholder="12.345.678-9"  id="validacion-live" class="form-control" name="datos[rut]" required/></div>
+                <div class='col-md-3'><input type="text" placeholder="12.345.678-9" id="txt_rut" class="form-control" name="datos[rut]" required/></div>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@
       $("form#basico input").rut();
       $("form#multiple-objetos input").rut({formatOn: 'keyup'});
       $("form#formato-live input").rut({formatOn: 'keyup'});
-      $("form#validacion-live input").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".control-group").addClass("error")}).on('rutValido', function(){ $(this).parents(".control-group").removeClass("error")});
+      $("form#validacion-live input#txt_rut").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".control-group").addClass("error")}).on('rutValido', function(){ $(this).parents(".control-group").removeClass("error")});
       $("form#extraer-cuerpo input").rut().on('rutValido', function(e, rut){alert("Su RUT sin DV es " + rut);});
       $("form#multiple-events input").rut({validateOn: 'keyup change'}).on('rutInvalido', function(){ $(this).parents(".control-group").addClass("error") }).on('rutValido', function(){ $(this).parents(".control-group").removeClass("error") });
     });
