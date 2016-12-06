@@ -67,7 +67,7 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Telefono</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[telefono]" required></div>
+          <div class='col-md-3'><input type="number" class="form-control" name="datos[telefono]" required></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Ciudad</b></div>
