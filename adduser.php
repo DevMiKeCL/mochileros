@@ -48,11 +48,11 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Apellido Paterno</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[apaterno]" required></div>
+          <div class='col-md-3'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[apaterno]" required></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Apellido Materno</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[amaterno]" required></div>
+          <div class='col-md-3'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[amaterno]" required></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Fecha de Nacimiento</b></div>
