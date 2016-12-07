@@ -11,6 +11,7 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -43,7 +44,7 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Nombre</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[nombre]" required></div>
+          <div class='col-md-3'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[nombre]" required></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Apellido Paterno</b></div>
@@ -121,6 +122,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+  <script src="js/scripts.js"></script>
   <script src="js/jquery.rut.js"></script>
   <script type="text/javascript">
     $(function(){
