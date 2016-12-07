@@ -71,23 +71,9 @@
           <div class='col-md-3'><input type="number" class="form-control" name="datos[telefono]" required></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Ciudad</b></div>
+          <div class='col-md-6'><b>Pais</b></div>
           <div class='col-md-3'>
-            <select name="datos[ciudad]" class="form-control">
-              <option value="Coquimbo">Coquimbo</option>
-              <option value="La Serena">La Serena</option>
-              <option value="Ovalle">Ovalle</option>
-            </select>
-          </div>
-        </div>
-        <div class='row contenido2'>
-          <div class='col-md-6'><b>Comuna</b></div>
-          <div class='col-md-3'>
-            <select name="datos[comuna]" class="form-control">
-              <option value="Coquimbo">Coquimbo</option>
-              <option value="La Serena">La Serena</option>
-              <option value="Ovalle">Ovalle</option>
-            </select>
+            <?php include'cbcountry.php'; ?>
           </div>
         </div>
         <div class='row pie'>
