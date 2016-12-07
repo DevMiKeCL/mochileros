@@ -60,7 +60,7 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Email</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[email]" required></div>
+          <div class='col-md-3'><input type="email" class="form-control" name="datos[email]" required></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Contraseña</b></div>
