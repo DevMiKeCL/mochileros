@@ -14,7 +14,7 @@
     <link href="css/style.css" rel="stylesheet">
     <style type="text/css">
       body {
-        padding-top: 60px;
+        padding-top: 0px;
         padding-bottom: 40px;
       }
     </style>
@@ -27,6 +27,96 @@
     <![endif]-->
   </head>
   <body>
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+             <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button> <a class="navbar-brand" href="index.html">MOCHILEROS</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">Acerca de</a>
+            </li>
+            <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias<strong class="caret"></strong></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">Cámpines</a>
+                </li>
+                <li>
+                  <a href="#">Restaurantes</a>
+                </li>
+                <li>
+                  <a href="#">Locomoción</a>
+                </li>
+                <li>
+                  <a href="#">Sitios de Interes</a>
+                </li>
+                <!-- <li class="divider">
+                </li>
+                <li>
+                  <a href="#">One more separated link</a>
+                </li> -->
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input placeholder="Busca tu sitio"type="text" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-default">
+              Buscar
+            </button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="index.html"> <img class="flag" src="img/Chile.png"> </a>
+            </li>
+            <li>
+              <a href="index.html"> <img  class="flag" src="img/United States.png"> </a>
+            </li>
+            <li>
+              <a href="index.html"> <img class="flag" src="img/Brazil.png"> </a>
+            </li>
+            <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ingresa/Registrate<strong class="caret"></strong></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <input type="text" placeholder="Nombre">
+                </li>
+                <li>
+                  <input type="password" placeholder="Contraseña">
+                </li>
+                <li>
+                  <button type="submit" class="btn btn-default">
+                    Aceptar
+                  </button>
+                  <button type="submit" class="btn btn-default">
+                    Cancelar
+                  </button>
+                </li>
+                <li class="divider">
+                </li>
+                <li>
+                  <a href="adduser.php">Registro Usuarios Nuevos</a>
+                </li>
+                <li class="divider">
+                </li>
+                <li>
+                  <a href="#">Ingreso Administrador</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
     <div class="container">
     <?php if (!isset($_POST['crear_usuario'])): ?>
       <form action="adduser.php" method="post" id="validacion-live"  class="form-horizontal">
