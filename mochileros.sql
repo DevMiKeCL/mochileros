@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     08-12-2016 20:08:07                          */
+/* Created on:     11-12-2016 0:17:12                           */
 /*==============================================================*/
 
 
@@ -47,7 +47,6 @@ create table BUSQUEDA
    U_RUT                varchar(10),
    ID_LUGAR             int,
    B_FECHA              datetime,
-   B_GMAP               varchar(50),
    B_IP                 varchar(20),
    primary key (ID_BUSQUEDA)
 );
@@ -110,7 +109,8 @@ create table LUGAR
    L_FACEBOOK           varchar(50),
    L_TWITTER            varchar(50),
    L_WHATSAPP           int,
-   L_GMAP               varchar(50),
+   L_LATITUD            varchar(50),
+   L_LONGITUD           varchar(50),
    L_SERVICIOS          longtext,
    L_DESCRIPCION        longtext,
    L_COMOLLEGAR         longtext,
@@ -144,7 +144,8 @@ create table UBICACION_ACTUAL
 (
    ID_UBICACION         int not null auto_increment,
    U_RUT                varchar(10),
-   UB_UACTUAL           longtext,
+   UB_LATITUD           varchar(50),
+   UB_LONGITUD          varchar(50),
    UB_FECHA             datetime,
    primary key (ID_UBICACION)
 );
