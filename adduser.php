@@ -121,54 +121,66 @@
     <?php if (!isset($_POST['crear_usuario'])): ?>
       <form action="adduser.php" method="post" id="validacion-live"  class="form-horizontal">
         <div class='row encabezado'>
-          <div class='col-md-6'><h3>Crear Usuario</h3></div>
-          <div class='col-md-6'></div>
+          <div class='col-md-3'></div>
+          <div class='col-md-2'><h3>Crear Usuario</h3></div>
+          <div class='col-md-2'></div>
+          <div class='col-md-2'></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>RUT </b></div>
-            <div class="control-group">
-              <div class="controls">
-                <div class='col-md-3'><input type="text" placeholder="12.345.678-9" id="txt_rut" class="form-control" name="datos[rut]" required/></div>
-            </div>
-          </div>
+          <div class='col-md-3'></div>
+          <div class='col-md-2'><b>Nombre</b></div>
+          <div class='col-md-2'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[nombre]" required></div>
+          <div class='col-md-2'></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Nombre</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[nombre]" required></div>
+          <div class='col-md-3'></div>
+          <div class='col-md-2'><b>Apellido Paterno</b></div>
+          <div class='col-md-2'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[apaterno]" required></div>
+          <div class='col-md-2'></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Apellido Paterno</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[apaterno]" required></div>
+          <div class='col-md-3'></div>
+          <div class='col-md-2'><b>Apellido Materno</b></div>
+          <div class='col-md-2'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[amaterno]" required></div>
+          <div class='col-md-2'></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Apellido Materno</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[amaterno]" required></div>
+          <div class='col-md-3'></div>
+          <div class='col-md-2'><b>Fecha de Nacimiento</b></div>
+          <div class='col-md-2'><input type="date" class="form-control" min="1930-01-01" max="1998-12-31" name="datos[fnac]" required></div>
+          <div class='col-md-2'></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Fecha de Nacimiento</b></div>
-          <div class='col-md-3'><input type="date" class="form-control" name="datos[fnac]" required></div>
+          <div class='col-md-3'></div>
+          <div class='col-md-2'><b>Email</b></div>
+          <div class='col-md-2'><input type="email" class="form-control" name="datos[email]" required></div>
+          <div class='col-md-2'></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Email</b></div>
-          <div class='col-md-3'><input type="email" class="form-control" name="datos[email]" required></div>
+          <div class='col-md-3'></div>
+          <div class='col-md-2'><b>Contraseña</b></div>
+          <div class='col-md-2'><input type="text" class="form-control" name="datos[pass]" required></div>
+          <div class='col-md-2'></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Contraseña</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[pass]" required></div>
+          <div class='col-md-3'></div>
+          <div class='col-md-2'><b>Telefono</b></div>
+          <div class='col-md-2'><input type="number" class="form-control" name="datos[telefono]" required></div>
+          <div class='col-md-2'></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Telefono</b></div>
-          <div class='col-md-3'><input type="number" class="form-control" name="datos[telefono]" required></div>
-        </div>
-        <div class='row contenido2'>
-          <div class='col-md-6'><b>Pais</b></div>
-          <div class='col-md-3'>
+          <div class='col-md-3'></div>
+          <div class='col-md-2'><b>Pais</b></div>
+          <div class='col-md-2'>
             <?php include'cbcountry.php'; ?>
           </div>
+          <div class='col-md-2'></div>
         </div>
         <div class='row pie'>
-          <div class='col-md-6'><b></b></div>
+          <div class='col-md-3'></div>
+          <div class='col-md-2'></div>
           <div class='col-md-2'><button class="btn btn-primary btn-block" type="submit" name="crear_usuario">Crear Usuario</button></div>
+          <div class='col-md-2'></div>
         </div>
       </form>
     <?php else:
@@ -177,15 +189,17 @@
       // iniciamos session
       session_start();
       // capturamos los datos del post
-      $cliente = $_POST['datos'];
-      $sql = "INSERT INTO `Usuario` (`u_rut`, `u_nombre`, `u_apaterno`, `u_amaterno`, `u_ciudad`, `u_comuna`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`)
-      VALUES ('$cliente[rut]', '$cliente[nombre]', '$cliente[apaterno]', '$cliente[amaterno]', '$cliente[ciudad]', '$cliente[comuna]', '$cliente[telefono]', '$cliente[fnac]', '$cliente[email]', '$cliente[pass]')";
+      $usuario = $_POST['datos'];
+      $sql = "INSERT INTO `Usuario` (`u_nombre`, `u_apaterno`, `u_amaterno`, `u_pais`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`, `id_tusuario`, `u_estado`)
+      VALUES ('$usuario[nombre]', '$usuario[apaterno]', '$usuario[amaterno]', '$usuario[pais]', '$usuario[telefono]', '$usuario[fnac]', '$usuario[email]', '$usuario[pass]', 1, 'TRUE')";
       echo "Usuario igresado";
+      echo "<br />";
+      echo $sql;
       // se ejecuta y cierra la bbdd
       $conn->query($sql);
       $conn->close();
       // guardamos la variable de session cliente
-      $_SESSION['cliente'] = $cliente;
+      $_SESSION['usuario'] = $usuario;
       // cargamos el siguiente paso, crear equipo
       //header('Location: crear_equipo.php');
       ?>
@@ -199,16 +213,5 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
   <script src="js/scripts.js"></script>
-  <script src="js/jquery.rut.js"></script>
-  <script type="text/javascript">
-    $(function(){
-      $("form#basico input").rut();
-      $("form#multiple-objetos input").rut({formatOn: 'keyup'});
-      $("form#formato-live input").rut({formatOn: 'keyup'});
-      $("form#validacion-live input#txt_rut").rut({formatOn: 'keyup', validateOn: 'keyup'}).on('rutInvalido', function(){ $(this).parents(".control-group").addClass("error")}).on('rutValido', function(){ $(this).parents(".control-group").removeClass("error")});
-      $("form#extraer-cuerpo input").rut().on('rutValido', function(e, rut){alert("Su RUT sin DV es " + rut);});
-      $("form#multiple-events input").rut({validateOn: 'keyup change'}).on('rutInvalido', function(){ $(this).parents(".control-group").addClass("error") }).on('rutValido', function(){ $(this).parents(".control-group").removeClass("error") });
-    });
-  </script>
   </body>
 </html>

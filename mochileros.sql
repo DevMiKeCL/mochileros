@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     11-12-2016 0:17:12                           */
+/* Created on:     12-12-2016 17:11:55                          */
 /*==============================================================*/
 
 
@@ -44,7 +44,7 @@ create table ADMINISTRADOR
 create table BUSQUEDA
 (
    ID_BUSQUEDA          int not null auto_increment,
-   U_RUT                varchar(10),
+   ID_USUARIO           int,
    ID_LUGAR             int,
    B_FECHA              datetime,
    B_IP                 varchar(20),
@@ -94,10 +94,10 @@ create table CREDITO
 /*==============================================================*/
 create table LUGAR
 (
-   ID_LUGAR             int not null,
+   ID_LUGAR             int not null auto_increment,
    A_RUT                varchar(10),
    ID_TIPO              int,
-   U_RUT                varchar(10),
+   ID_USUARIO           int,
    L_NOMBRE             varchar(20),
    L_DIRECCION          varchar(20),
    L_CIUDAD             varchar(20),
@@ -143,7 +143,7 @@ create table TIPO_USUARIO
 create table UBICACION_ACTUAL
 (
    ID_UBICACION         int not null auto_increment,
-   U_RUT                varchar(10),
+   ID_USUARIO           int,
    UB_LATITUD           varchar(50),
    UB_LONGITUD          varchar(50),
    UB_FECHA             datetime,
@@ -155,27 +155,28 @@ create table UBICACION_ACTUAL
 /*==============================================================*/
 create table USUARIO
 (
-   U_RUT                varchar(10) not null,
+   ID_USUARIO           int not null auto_increment,
    ID_CONTRATO          int,
    ID_TUSUARIO          int,
+   U_RUT                varchar(10),
    U_PASS               varchar(20),
    U_NOMBRE             varchar(20),
    U_APATERNO           varchar(20),
    U_AMATERNO           varchar(20),
    U_DIRECCION          varchar(20),
+   U_EMAIL              varchar(50) not null,
    U_CIUDAD             varchar(20),
    U_COMUNA             varchar(20),
    U_TELEFONO           int,
    U_FNAC               date,
-   U_EMAIL              varchar(50),
    U_CACTIVACION        varchar(20),
    U_ESTADO             bool,
    U_PAIS               varchar(50),
-   primary key (U_RUT)
+   primary key (ID_USUARIO)
 );
 
-alter table BUSQUEDA add constraint FK_BUSCA foreign key (U_RUT)
-      references USUARIO (U_RUT) on delete restrict on update restrict;
+alter table BUSQUEDA add constraint FK_BUSCA foreign key (ID_USUARIO)
+      references USUARIO (ID_USUARIO) on delete restrict on update restrict;
 
 alter table BUSQUEDA add constraint FK_BUSCA2 foreign key (ID_LUGAR)
       references LUGAR (ID_LUGAR) on delete restrict on update restrict;
@@ -186,8 +187,8 @@ alter table CONTADO add constraint FK_CONTIENE2 foreign key (ID_CONTRATO)
 alter table CREDITO add constraint FK_CONTIENE foreign key (ID_CONTRATO)
       references CONTRATO (ID_CONTRATO) on delete restrict on update restrict;
 
-alter table LUGAR add constraint FK_CREA foreign key (U_RUT)
-      references USUARIO (U_RUT) on delete restrict on update restrict;
+alter table LUGAR add constraint FK_CREA foreign key (ID_USUARIO)
+      references USUARIO (ID_USUARIO) on delete restrict on update restrict;
 
 alter table LUGAR add constraint FK_PUBLICA foreign key (A_RUT)
       references ADMINISTRADOR (A_RUT) on delete restrict on update restrict;
@@ -195,12 +196,11 @@ alter table LUGAR add constraint FK_PUBLICA foreign key (A_RUT)
 alter table LUGAR add constraint FK_TIENE foreign key (ID_TIPO)
       references TIPO_LUGAR (ID_TIPO) on delete restrict on update restrict;
 
-alter table UBICACION_ACTUAL add constraint FK_POSEE foreign key (U_RUT)
-      references USUARIO (U_RUT) on delete restrict on update restrict;
+alter table UBICACION_ACTUAL add constraint FK_POSEE foreign key (ID_USUARIO)
+      references USUARIO (ID_USUARIO) on delete restrict on update restrict;
 
 alter table USUARIO add constraint FK_ADQUIERE foreign key (ID_CONTRATO)
       references CONTRATO (ID_CONTRATO) on delete restrict on update restrict;
 
 alter table USUARIO add constraint FK_PERTENECE foreign key (ID_TUSUARIO)
       references TIPO_USUARIO (ID_TUSUARIO) on delete restrict on update restrict;
-
