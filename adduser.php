@@ -190,9 +190,11 @@
       session_start();
       // capturamos los datos del post
       $usuario = $_POST['datos'];
-      $sql = "INSERT INTO `Usuario` (`u_nombre`, `u_apaterno`, `u_amaterno`, `u_pais`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`, `u_tusuario`, `u_estado`)
-      VALUES ('$usuario[nombre]', '$usuario[apaterno]', '$usuario[amaterno]', '$usuario[pais]', '$usuario[telefono]', '$usuario[fnac]', '$usuario[email]', '$usuario[pass]', 1, true)";
+      $sql = "INSERT INTO `Usuario` (`u_nombre`, `u_apaterno`, `u_amaterno`, `u_pais`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`, `id_tusuario`, `u_estado`)
+      VALUES ('$usuario[nombre]', '$usuario[apaterno]', '$usuario[amaterno]', '$usuario[pais]', '$usuario[telefono]', '$usuario[fnac]', '$usuario[email]', '$usuario[pass]', 1, 'TRUE')";
       echo "Usuario igresado";
+      echo "<br />";
+      echo $sql;
       // se ejecuta y cierra la bbdd
       $conn->query($sql);
       $conn->close();
