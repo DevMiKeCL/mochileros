@@ -1,12 +1,16 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     12-12-2016 17:11:55                          */
+/* Created on:     14-12-2016 13:51:07                          */
 /*==============================================================*/
 
 
 drop table if exists ADMINISTRADOR;
 
 drop table if exists BUSQUEDA;
+
+drop table if exists CALIFICACION;
+
+drop table if exists COMENTARIOS;
 
 drop table if exists CONTADO;
 
@@ -23,6 +27,8 @@ drop table if exists TIPO_USUARIO;
 drop table if exists UBICACION_ACTUAL;
 
 drop table if exists USUARIO;
+
+drop table if exists VISITAS;
 
 /*==============================================================*/
 /* Table: ADMINISTRADOR                                         */
@@ -49,6 +55,32 @@ create table BUSQUEDA
    B_FECHA              datetime,
    B_IP                 varchar(20),
    primary key (ID_BUSQUEDA)
+);
+
+/*==============================================================*/
+/* Table: CALIFICACION                                          */
+/*==============================================================*/
+create table CALIFICACION
+(
+   ID_CALIFICACION      int not null auto_increment,
+   ID_USUARIO           int,
+   ID_LUGAR             int,
+   C_VALOR              decimal,
+   C_FECHA              date,
+   primary key (ID_CALIFICACION)
+);
+
+/*==============================================================*/
+/* Table: COMENTARIOS                                           */
+/*==============================================================*/
+create table COMENTARIOS
+(
+   ID_COMENTARIO        int not null auto_increment,
+   ID_LUGAR             int,
+   ID_USUARIO           int,
+   COM_CONTENIDO        longtext,
+   COM_FECHA            date,
+   primary key (ID_COMENTARIO)
 );
 
 /*==============================================================*/
@@ -98,17 +130,14 @@ create table LUGAR
    A_RUT                varchar(10),
    ID_TIPO              int,
    ID_USUARIO           int,
-   L_NOMBRE             varchar(20),
-   L_DIRECCION          varchar(20),
-   L_CIUDAD             varchar(20),
-   L_COMUNA             varchar(20),
-   L_CALIFICACION       int,
-   L_TVISITAS           int,
-   L_HVISITAS           int,
-   L_TELEFONO           int,
+   L_NOMBRE             varchar(50),
+   L_DIRECCION          varchar(50),
+   L_LOCALIDAD          varchar(50),
+   L_COMUNA             varchar(50),
+   L_TELEFONO           varchar(20),
    L_FACEBOOK           varchar(50),
    L_TWITTER            varchar(50),
-   L_WHATSAPP           int,
+   L_WHATSAPP           varchar(20),
    L_LATITUD            varchar(50),
    L_LONGITUD           varchar(50),
    L_SERVICIOS          longtext,
@@ -167,7 +196,7 @@ create table USUARIO
    U_EMAIL              varchar(50) not null,
    U_CIUDAD             varchar(20),
    U_COMUNA             varchar(20),
-   U_TELEFONO           int,
+   U_TELEFONO           varchar(20),
    U_FNAC               date,
    U_CACTIVACION        varchar(20),
    U_ESTADO             bool,
@@ -175,11 +204,35 @@ create table USUARIO
    primary key (ID_USUARIO)
 );
 
+/*==============================================================*/
+/* Table: VISITAS                                               */
+/*==============================================================*/
+create table VISITAS
+(
+   ID_VISITAS           int not null auto_increment,
+   ID_USUARIO           int,
+   ID_LUGAR             int,
+   V_FECHA              date,
+   primary key (ID_VISITAS)
+);
+
 alter table BUSQUEDA add constraint FK_BUSCA foreign key (ID_USUARIO)
       references USUARIO (ID_USUARIO) on delete restrict on update restrict;
 
 alter table BUSQUEDA add constraint FK_BUSCA2 foreign key (ID_LUGAR)
       references LUGAR (ID_LUGAR) on delete restrict on update restrict;
+
+alter table CALIFICACION add constraint FK_OBTIENE foreign key (ID_LUGAR)
+      references LUGAR (ID_LUGAR) on delete restrict on update restrict;
+
+alter table CALIFICACION add constraint FK_REALIZA foreign key (ID_USUARIO)
+      references USUARIO (ID_USUARIO) on delete restrict on update restrict;
+
+alter table COMENTARIOS add constraint FK_ACEPTA foreign key (ID_LUGAR)
+      references LUGAR (ID_LUGAR) on delete restrict on update restrict;
+
+alter table COMENTARIOS add constraint FK_ESCRIBE foreign key (ID_USUARIO)
+      references USUARIO (ID_USUARIO) on delete restrict on update restrict;
 
 alter table CONTADO add constraint FK_CONTIENE2 foreign key (ID_CONTRATO)
       references CONTRATO (ID_CONTRATO) on delete restrict on update restrict;
@@ -204,3 +257,9 @@ alter table USUARIO add constraint FK_ADQUIERE foreign key (ID_CONTRATO)
 
 alter table USUARIO add constraint FK_PERTENECE foreign key (ID_TUSUARIO)
       references TIPO_USUARIO (ID_TUSUARIO) on delete restrict on update restrict;
+
+alter table VISITAS add constraint FK_HACE foreign key (ID_USUARIO)
+      references USUARIO (ID_USUARIO) on delete restrict on update restrict;
+
+alter table VISITAS add constraint FK_RECIBE foreign key (ID_LUGAR)
+      references LUGAR (ID_LUGAR) on delete restrict on update restrict;
