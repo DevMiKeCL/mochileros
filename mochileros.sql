@@ -130,7 +130,7 @@ create table CREDITO
 /*==============================================================*/
 create table LISTA_SERVICIO
 (
-   ID_LSERVICIO         int not null,
+   ID_LSERVICIO         int not null auto_increment,
    LS_NOMBRE            varchar(50),
    primary key (ID_LSERVICIO)
 );
