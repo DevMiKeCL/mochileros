@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     14-12-2016 13:51:07                          */
+/* Created on:     14-12-2016 16:12:23                          */
 /*==============================================================*/
 
 
@@ -18,7 +18,11 @@ drop table if exists CONTRATO;
 
 drop table if exists CREDITO;
 
+drop table if exists LISTA_SERVICIO;
+
 drop table if exists LUGAR;
+
+drop table if exists SERVICIO;
 
 drop table if exists TIPO_LUGAR;
 
@@ -122,6 +126,16 @@ create table CREDITO
 );
 
 /*==============================================================*/
+/* Table: LISTA_SERVICIO                                        */
+/*==============================================================*/
+create table LISTA_SERVICIO
+(
+   ID_LSERVICIO         int not null,
+   LS_NOMBRE            varchar(50),
+   primary key (ID_LSERVICIO)
+);
+
+/*==============================================================*/
 /* Table: LUGAR                                                 */
 /*==============================================================*/
 create table LUGAR
@@ -144,6 +158,18 @@ create table LUGAR
    L_DESCRIPCION        longtext,
    L_COMOLLEGAR         longtext,
    primary key (ID_LUGAR)
+);
+
+/*==============================================================*/
+/* Table: SERVICIO                                              */
+/*==============================================================*/
+create table SERVICIO
+(
+   ID_SERVICIO          int not null auto_increment,
+   ID_LUGAR             int,
+   ID_LSERVICIO         int,
+   S_ESTADO             bool,
+   primary key (ID_SERVICIO)
 );
 
 /*==============================================================*/
@@ -248,6 +274,12 @@ alter table LUGAR add constraint FK_PUBLICA foreign key (A_RUT)
 
 alter table LUGAR add constraint FK_TIENE foreign key (ID_TIPO)
       references TIPO_LUGAR (ID_TIPO) on delete restrict on update restrict;
+
+alter table SERVICIO add constraint FK_ESTA foreign key (ID_LSERVICIO)
+      references LISTA_SERVICIO (ID_LSERVICIO) on delete restrict on update restrict;
+
+alter table SERVICIO add constraint FK_OFRECE foreign key (ID_LUGAR)
+      references LUGAR (ID_LUGAR) on delete restrict on update restrict;
 
 alter table UBICACION_ACTUAL add constraint FK_POSEE foreign key (ID_USUARIO)
       references USUARIO (ID_USUARIO) on delete restrict on update restrict;

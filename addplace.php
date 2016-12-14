@@ -31,13 +31,13 @@
           <div class='col-md-3'><input type="text" class="form-control" name="datos[nombre]" required></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>direccion</b></div>
+          <div class='col-md-6'><b>Direccion</b></div>
           <div class='col-md-3'><input type="text" class="form-control" name="datos[direccion]" required></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Ciudad</b></div>
+          <div class='col-md-6'><b>Localidad</b></div>
           <div class='col-md-3'>
-            <select name="datos[ciudad]" class="form-control">
+            <select name="datos[localidad]" class="form-control">
               <option value="Coquimbo">Coquimbo</option>
               <option value="La Serena">La Serena</option>
               <option value="Ovalle">Ovalle</option>
@@ -56,7 +56,7 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Telefono</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[telefno]" required></div>
+          <div class='col-md-3'><input type="number" class="form-control" name="datos[telefono]" required></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Facebook</b></div>
