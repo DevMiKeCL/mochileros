@@ -5,6 +5,7 @@
   // se ejecuta consulta sql y capturan resultados en $result
   $sqls = "SELECT * FROM paises";
   $resultado = $conn->query($sqls);
+  var_dump($resultado);
   if ($resultado->num_rows > 0) {
       // generamos un combobox con el resultado obtenido
       echo '<select name="datos[pais]" class="form-control">';
