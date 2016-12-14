@@ -26,12 +26,6 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-3'></div>
-          <div class='col-md-2'><b>ID del Servicio</b></div>
-          <div class='col-md-2'><input type="number" class="form-control" name="datos[id]" required></div>
-          <div class='col-md-2'></div>
-        </div>
-        <div class='row contenido2'>
-          <div class='col-md-3'></div>
           <div class='col-md-2'><b>Nombre Del Servicio</b></div>
           <div class='col-md-2'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[nombre]" required></div>
           <div class='col-md-2'></div>
@@ -50,8 +44,8 @@
       session_start();
       // capturamos los datos del post
       $servicio = $_POST['datos'];
-      $sql = "INSERT INTO `lista_servicio` (`id_lservicio`, `ls_nombre`)
-      VALUES ('$servicio[id]', '$servicio[nombre]')";
+      $sql = "INSERT INTO `lista_servicio` (`ls_nombre`)
+      VALUES ('$servicio[nombre]')";
       echo "Servicio igresado";
       echo "<br />";
       echo $sql;
@@ -69,7 +63,7 @@
   <div class="container">
   <h2>Lista de Servicios</h2>
   <p>The .table-hover class enables a hover state on table rows:</p>
-  <?php include 'listservices.php'; ?>
+  <?php include 'tabla.php'; ?>
 </div>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

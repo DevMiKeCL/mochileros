@@ -15,9 +15,7 @@
             </tr>
           </thead><tbody>';
       while($rows = $resultado->fetch_assoc()) {
-        if ($row["id_lservicio"] == $rows["id_lservicio"] ) {
-          echo '<tr><td>'. $rows[id_lservicio].'</td> <td>'. $rows["ls_nombre"].'</td>';
-        }
+        echo '<tr><td>'. $rows["id_lservicio"].'</td><td>'. $rows["ls_nombre"].'</td>';
       }
       echo '</tr>
           </tbody>
