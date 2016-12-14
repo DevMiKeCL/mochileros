@@ -62,7 +62,7 @@
   </div>
   <div class="container">
   <h2>Lista de Servicios</h2>
-  <p>The .table-hover class enables a hover state on table rows:</p>
+  <p>Servicios disponibles para el sitio</p>
   <?php include 'tabla.php'; ?>
 </div>
   <script src="js/jquery.min.js"></script>
