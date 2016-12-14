@@ -26,13 +26,13 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-3'></div>
-          <div class='col-md-2'><b>ID del servicio</b></div>
+          <div class='col-md-2'><b>Nombre Actual</b></div>
           <div class='col-md-2'><?php include 'cbservicios.php' ?></div>
           <div class='col-md-2'></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-3'></div>
-          <div class='col-md-2'><b>Nombre del Servicio</b></div>
+          <div class='col-md-2'><b>Nuevo Nombre</b></div>
           <div class='col-md-2'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[nombre]" required></div>
           <div class='col-md-2'></div>
         </div>
