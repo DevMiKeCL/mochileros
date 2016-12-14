@@ -16,11 +16,11 @@
   </head>
   <body>
     <div class="container">
-    <?php if (!isset($_POST['eliminar_servicio'])): ?>
-      <form action="deleteservice.php" method="post" id="validacion-live"  class="form-horizontal">
+    <?php if (!isset($_POST['actualizar_servicio'])): ?>
+      <form action="updateservice.php" method="post" id="validacion-live"  class="form-horizontal">
         <div class='row encabezado'>
           <div class='col-md-3'></div>
-          <div class='col-md-2'><h3>Eliminar Servicios</h3></div>
+          <div class='col-md-2'><h3>Actualizar Servicios</h3></div>
           <div class='col-md-2'></div>
           <div class='col-md-2'></div>
         </div>
@@ -30,10 +30,16 @@
           <div class='col-md-2'><?php include 'cbservicios.php' ?></div>
           <div class='col-md-2'></div>
         </div>
+        <div class='row contenido2'>
+          <div class='col-md-3'></div>
+          <div class='col-md-2'><b>Nombre del Servicio</b></div>
+          <div class='col-md-2'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[nombre]" required></div>
+          <div class='col-md-2'></div>
+        </div>
         <div class='row pie'>
           <div class='col-md-3'></div>
           <div class='col-md-2'></div>
-          <div class='col-md-2'><button class="btn btn-primary btn-block" type="submit" name="eliminar_servicio">Eliminar Servicio</button></div>
+          <div class='col-md-2'><button class="btn btn-primary btn-block" type="submit" name="actualizar_servicio">Actualizar Servicio</button></div>
           <div class='col-md-2'></div>
         </div>
       </form>
@@ -44,8 +50,9 @@
       session_start();
       // capturamos los datos del post
       $servicio = $_POST['datos'];
-      $sql = "DELETE FROM `lista_servicio` WHERE `ID_LSERVICIO` = $servicio[id]";
-      echo "Servicio eliminado";
+      $sql = "UPDATE `lista_servicio` SET `LS_NOMBRE` = '$servicio[nombre]' WHERE `lista_servicio`.`ID_LSERVICIO` = $servicio[id]";
+      //$sql = "DELETE FROM `lista_servicio` WHERE `ID_LSERVICIO` = $servicio[id]";
+      echo "Servicio actualizado";
       echo "<br />";
       echo $sql;
       // se ejecuta y cierra la bbdd
