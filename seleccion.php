@@ -25,23 +25,29 @@
       // conectamos a la base de datos
       include 'conexion.php';
       var_dump($recepcion);
-      //echo "<hr />";
-      //echo "<h3>Usted seleccionó:</h3>";
-
-      //Creacion del sql string
-      $i = 0;
-      $str = $recepcion[$i];
-      $valores = '1';
-      for ($i=1; $i < count($recepcion) ; $i++) {
-        //if ($recepcion[$i]!="") {
-        //  $str = $recepcion[$i];
-        //}else {
-          $str = $str.'`, `'.$recepcion[$i];
-          $valores = $valores. "', '1";
-        //}
-
-        //echo $recepcion[$i];
+      echo "<h3>Lista</h3>";
+      $j = 0;
+      foreach ($recepcion as $serv) {
+        if (isset($serv)) {
+          //echo "hay contenido";
+          //echo "<br />";
+          $recepcion2[$j] = $serv;
+          $j++;
+          //echo "imprime j $j <br />";
+        }else {
+          echo "no hay contenido <br />";
+        }
+        echo "$serv <br />";
       }
+        //for ($i=0; $i <= count($recepcion) ; $i++) {
+
+            //$str = $str.'`, `'.$recepcion[$i];
+            //$valores = $valores. "', '1";
+            //echo "imprime i $i <br />";
+        //}
+      echo "<h3>var_dump final</h3>";
+      var_dump($recepcion2);
+
       $sql1= 'INSERT INTO `servicio` (`'.$str.'`)';
       $sql2= "VALUES ('$valores')";
       // sql final
