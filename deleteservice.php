@@ -26,7 +26,7 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-3'></div>
-          <div class='col-md-2'><b>ID del servicio</b></div>
+          <div class='col-md-2'><b>Servicio</b></div>
           <div class='col-md-2'><?php include 'cbservicios.php' ?></div>
           <div class='col-md-2'></div>
         </div>
