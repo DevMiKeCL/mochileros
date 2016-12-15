@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     15-12-2016 9:18:57                           */
+/* Created on:     15-12-2016 9:26:55                           */
 /*==============================================================*/
 
 
@@ -130,7 +130,7 @@ create table CREDITO
 /*==============================================================*/
 create table LISTA_SERVICIO
 (
-   ID_LSERVICIO         int not null,
+   ID_LSERVICIO         int not null auto_increment,
    LS_NOMBRE            varchar(50),
    NOM_COLUMNA          varchar(50),
    primary key (ID_LSERVICIO)

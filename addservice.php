@@ -46,7 +46,7 @@
       $servicio = $_POST['datos'];
       $formateo[nombre] = strtoupper($servicio[nombre]);
       $formateo[nombre] = str_replace(" ", "", $formateo[nombre]);
-      $sql = "INSERT INTO `lista_servicio` (`ls_nombre`, `NOM_COLUMNA`)
+      $sql = "INSERT INTO `lista_servicio` (`ls_nombre`, `nom_columna`)
       VALUES ('$servicio[nombre]', '$formateo[nombre]')";
       $sql2 = "ALTER TABLE `servicio` ADD `$formateo[nombre]` BOOLEAN NOT NULL AFTER `ID_LSERVICIO`;";
       echo "Servicio igresado";
