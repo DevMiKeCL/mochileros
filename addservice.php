@@ -44,13 +44,17 @@
       session_start();
       // capturamos los datos del post
       $servicio = $_POST['datos'];
-      $sql = "INSERT INTO `lista_servicio` (`ls_nombre`)
-      VALUES ('$servicio[nombre]')";
+      $formateo[nombre] = strtoupper($servicio[nombre]);
+      $formateo[nombre] = str_replace(" ", "", $formateo[nombre]);
+      $sql = "INSERT INTO `lista_servicio` (`ls_nombre`, `NOM_COLUMNA`)
+      VALUES ('$servicio[nombre]', '$formateo[nombre]')";
+      $sql2 = "ALTER TABLE `servicio` ADD `$formateo[nombre]` BOOLEAN NOT NULL AFTER `ID_LSERVICIO`;";
       echo "Servicio igresado";
       echo "<br />";
       echo $sql;
       // se ejecuta y cierra la bbdd
       $conn->query($sql);
+      $conn->query($sql2);
       $conn->close();
       // guardamos la variable de session cliente
       $_SESSION['servicio'] = $servicio;
