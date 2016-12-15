@@ -33,8 +33,13 @@
       $str = $recepcion[$i];
       $valores = '1';
       for ($i=1; $i < count($recepcion) ; $i++) {
-        $str = $str.'`, `'.$recepcion[$i];
-        $valores = $valores. "', '1";
+        //if ($recepcion[$i]!="") {
+        //  $str = $recepcion[$i];
+        //}else {
+          $str = $str.'`, `'.$recepcion[$i];
+          $valores = $valores. "', '1";
+        //}
+
         //echo $recepcion[$i];
       }
       $sql1= 'INSERT INTO `servicio` (`'.$str.'`)';
