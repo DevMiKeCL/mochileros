@@ -39,15 +39,19 @@
         }
         echo "$serv <br />";
       }
-        //for ($i=0; $i <= count($recepcion) ; $i++) {
 
-            //$str = $str.'`, `'.$recepcion[$i];
-            //$valores = $valores. "', '1";
-            //echo "imprime i $i <br />";
-        //}
       echo "<h3>var_dump final</h3>";
       var_dump($recepcion2);
-
+      $valores = '1';
+      if (count($recepcion2) > 1) {
+        $i = 0;
+        $str = $recepcion2[$i];
+        for ($i=1; $i < count($recepcion2) ; $i++) {
+          $str = $str.'`, `'.$recepcion2[$i];
+          $valores = $valores. "', '1";
+          echo "imprime i $i <br />";
+        }
+      }
       $sql1= 'INSERT INTO `servicio` (`'.$str.'`)';
       $sql2= "VALUES ('$valores')";
       // sql final
