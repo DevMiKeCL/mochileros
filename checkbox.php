@@ -13,7 +13,11 @@
         //if ($row["ID_LSERVICIO"] == $rows["ID_LSERVICIO"] ) {
         //  echo '<input type="checkbox" name="datos['.$rows["LS_NOMBRE"].']" value="'.$rows["NOM_COLUMNA"].'"> '.$rows["LS_NOMBRE"].'<br>';
         //}else {
-          echo '<input type="checkbox" name="datos['.$i.']" value="'.$rows["NOM_COLUMNA"].'">'.$rows["LS_NOMBRE"].'<br>';
+        echo '<span class="button-checkbox">
+            <button type="button" class="btn btn-xs" data-color="primary">'.$rows["LS_NOMBRE"].'</button>
+            <input type="checkbox" class="hidden" name="datos['.$i.']" value="'.$rows["NOM_COLUMNA"].'" checked />
+        </span>';
+          //echo '<input type="checkbox" name="datos['.$i.']" value="'.$rows["NOM_COLUMNA"].'">'.$rows["LS_NOMBRE"].'<br>';
           $i = $i+1;
         //}
       }
