@@ -24,24 +24,24 @@
       $recepcion = $_POST['datos'];
       // conectamos a la base de datos
       include 'conexion.php';
-      var_dump($recepcion);
-      echo "<h3>Lista</h3>";
+
+      //verificamos la integridad de la variable
+      //var_dump($recepcion);
       $j = 0;
       foreach ($recepcion as $serv) {
         if (isset($serv)) {
-          //echo "hay contenido";
-          //echo "<br />";
           $recepcion2[$j] = $serv;
           $j++;
+          // si hay contenido se imprime el contador j
           //echo "imprime j $j <br />";
         }else {
           echo "no hay contenido <br />";
         }
-        echo "$serv <br />";
+        // verificamos el contenido
+        //echo "$serv <br />";
       }
-
-      echo "<h3>var_dump final</h3>";
-      var_dump($recepcion2);
+      //echo "<h3>var_dump final</h3>";
+      //var_dump($recepcion2);
       $valores = '1';
       if (count($recepcion2) > 1) {
         $i = 0;
@@ -49,8 +49,11 @@
         for ($i=1; $i < count($recepcion2) ; $i++) {
           $str = $str.'`, `'.$recepcion2[$i];
           $valores = $valores. "', '1";
-          echo "imprime i $i <br />";
+          //echo "imprime i $i <br />";
         }
+      }else {
+        $i = 0;
+        $str = $recepcion2[$i];
       }
       $sql1= 'INSERT INTO `servicio` (`'.$str.'`)';
       $sql2= "VALUES ('$valores')";
@@ -60,9 +63,7 @@
       echo $sql;
       $conn->query($sql);
       $conn->close();
-
       ?>
-
     <?php endif; ?>
   </body>
 </html>
