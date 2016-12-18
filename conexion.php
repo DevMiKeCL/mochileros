@@ -4,7 +4,7 @@
   $username = "mochile_moch2017";
   $password = "m0ch1l3r0";
   $dbname = "mochile_mochileros";
-  // Crear conexion
+  // Crear conexion servidor
   $conn = new mysqli($servername, $username, $password, $dbname);
   // Revisa conexion
   if ($conn->connect_error) {
