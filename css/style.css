@@ -52,3 +52,6 @@ input[type=number]::-webkit-outer-spin-button {
 	background-color: #CCC;
 	color: #000;
 }
+.note-group-select-from-files {
+  display: none;
+}

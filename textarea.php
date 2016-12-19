@@ -42,13 +42,12 @@
 				</form>
 			</div>
 		<?php else:
-			$str = htmlspecialchars($_POST['content']);
-			$article_code = base64_encode($_POST['content']);
-			var_dump($article_code);
+			$mensaje = base64_encode($_POST['content']);
+			var_dump($mensaje);
 			include 'conexion.php';
-			$sql = "INSERT INTO `mensajes` (`mensaje`) VALUES ('$article_code')";
+			$sql = "INSERT INTO `mensajes` (`mensaje`) VALUES ('$mensaje')";
 			echo "mensaje igresado";
-			echo "$article_code";
+			//echo "$article_code";
 			// se ejecuta y cierra la bbdd
 			$conn->query($sql);
 			$conn->close();
