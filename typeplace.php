@@ -46,7 +46,7 @@
       session_start();
       // capturamos los datos del post
       $lugar = $_POST['datos'];
-      $sql = "INSERT INTO `tipo_lugar` (`t_nombre`)
+      $sql = "INSERT INTO `TIPO_LUGAR` (`t_nombre`)
       VALUES ('$lugar[nombre]')";
       echo "Lugar igresado";
       echo "<br />";
