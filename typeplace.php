@@ -43,7 +43,7 @@
       // conectamos a la base de datos
       include 'conexion.php';
       // iniciamos session
-      session_start();
+      //session_start();
       // capturamos los datos del post
       $lugar = $_POST['datos'];
       $sql = "INSERT INTO `TIPO_LUGAR` (`t_nombre`)
@@ -55,7 +55,7 @@
       $conn->query($sql);
       $conn->close();
       // guardamos la variable de session cliente
-      $_SESSION['servicio'] = $servicio;
+      //$_SESSION['servicio'] = $servicio;
       // cargamos el siguiente paso, crear equipo
       //header('Location: crear_equipo.php');
       ?>
@@ -63,8 +63,8 @@
     <?php endif; ?>
   </div>
   <div class="container">
-  <h2>Lista de Servicios</h2>
-  <p>Servicios disponibles para el sitio</p>
+  <h2>Lista de tipos de lugar</h2>
+  <p>tipos disponibles para el sitio</p>
   <?php include 'tabla_lugar.php'; ?>
 </div>
 
