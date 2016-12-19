@@ -177,7 +177,7 @@ create table SERVICIO
 /*==============================================================*/
 create table TIPO_LUGAR
 (
-   ID_TIPO              int not null,
+   ID_TIPO              int not null auto_increment,
    T_NOMBRE             varchar(50),
    primary key (ID_TIPO)
 );

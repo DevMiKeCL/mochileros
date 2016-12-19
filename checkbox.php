@@ -7,7 +7,7 @@
   //var_dump($resultado);
   if ($resultado->num_rows > 0) {
       // generamos un combobox con el resultado obtenido
-      echo 'Inicio del checkbox <br>';
+      //echo 'Inicio del checkbox <br>';
       $i = 0;
       while($rows = $resultado->fetch_assoc()) {
         //if ($row["ID_LSERVICIO"] == $rows["ID_LSERVICIO"] ) {
@@ -15,13 +15,15 @@
         //}else {
         echo '<span class="button-checkbox">
             <button type="button" class="btn btn-xs" data-color="primary">'.$rows["LS_NOMBRE"].'</button>
-            <input type="checkbox" class="hidden" name="datos['.$i.']" value="'.$rows["NOM_COLUMNA"].'" checked />
+            <input type="checkbox" class="hidden" name="datos['.$i.']" value="'.$rows["NOM_COLUMNA"].'" />
         </span>';
+        // <input type="checkbox" class="hidden" name="datos['.$i.']" value="'.$rows["NOM_COLUMNA"].'" checked />
+
           //echo '<input type="checkbox" name="datos['.$i.']" value="'.$rows["NOM_COLUMNA"].'">'.$rows["LS_NOMBRE"].'<br>';
           $i = $i+1;
         //}
       }
-      echo 'FIN';
+      //echo 'FIN';
   } else {
       echo "0 results";
   }

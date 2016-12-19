@@ -7,16 +7,33 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <title>Crear Lugar</title>
+    <!-- include jquery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- include libraries BS3 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> -->
+    <script src="js/bootstrap.min.js"></script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- include summernote -->
+    <link rel="stylesheet" href="summernote/dist/summernote.css">
+    <script type="text/javascript" src="summernote/dist/summernote.js"></script>
+
+    <script src="js/scripts.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $('.summernote').summernote({
+          height: 200
+        });
+
+        $('form').on('submit', function (e) {
+          e.preventDefault();
+          alert($('.summernote').summernote('code'));
+          alert($('.summernote').val());
+        });
+      });
+    </script>
   </head>
   <body>
     <div class="container">
@@ -31,6 +48,10 @@
           <div class='col-md-3'><input type="text" class="form-control" name="datos[nombre]" required></div>
         </div>
         <div class='row contenido2'>
+          <div class='col-md-6'><b>Tipo</b></div>
+          <div class='col-md-3'><?php include 'cbtlugar.php' ?></div>
+        </div>
+        <div class='row contenido2'>
           <div class='col-md-6'><b>Direccion</b></div>
           <div class='col-md-3'><input type="text" class="form-control" name="datos[direccion]" required></div>
         </div>
@@ -38,20 +59,41 @@
           <div class='col-md-6'><b>Localidad</b></div>
           <div class='col-md-3'>
             <select name="datos[localidad]" class="form-control">
-              <option value="Coquimbo">Coquimbo</option>
-              <option value="La Serena">La Serena</option>
-              <option value="Ovalle">Ovalle</option>
-            </select>
-          </div>
-        </div>
-        <div class='row contenido2'>
-          <div class='col-md-6'><b>Comuna</b></div>
-          <div class='col-md-3'>
-            <select name="datos[comuna]" class="form-control">
-              <option value="Coquimbo">Coquimbo</option>
-              <option value="La Serena">La Serena</option>
-              <option value="Ovalle">Ovalle</option>
-            </select>
+              <optgroup label="Paihuano">
+                <option value="Alcohuáz">Alcohuáz</option>
+                <option value="Pisco Elqui">Pisco Elqui</option>
+                <option value="Paihuano">Paihuano</option>
+                <option value="Monte Grande">Monte Grande</option>
+                <option value="Horcón">Horcón</option>
+                <option value="Cochiguáz">Cochiguáz</option>
+              </optgroup>
+              <optgroup label="Vicuña">
+                <option value="El Almendral">El Almendral</option>
+                <option value="Gualliguaica">Gualliguaica</option>
+                <option value="El Tambo">El Tambo</option>
+                <option value="Pelícana">Pelícana</option>
+                <option value="Qda. de Talca">Qda. de Talca</option>
+                <option value="Villaseca">Villaseca</option>
+                <option value="Perallilo">Perallilo</option>
+                <option value="Andacollito">Andacollito</option>
+                <option value="La Campana">La Campana</option>
+                <option value="Rivadavia">Rivadavia</option>
+                <option value="Vicuña">Vicuña</option>
+                <option value="El Molle">El Molle</option>
+                <option value="Diaguitas">Diaguitas</option>
+                <option value="San Isidro">San Isidro</option>
+                <option value="El Arenal">El Arenal</option>
+              </optgroup>
+              <optgroup label="La Serena">
+                <option value="El Arrayan">El Arrayan</option>
+                <option value="Las Rojas">Las Rojas</option>
+                <option value="Gabriela">Gabriela</option>
+                <option value="Altovalsol">Altovalsol</option>
+                <option value="Monardez">Monardez</option>
+                <option value="Algarrobito">Algarrobito</option>
+                <option value="La Serena">La Serena</option>
+              </optgroup>
+        </select>
           </div>
         </div>
         <div class='row contenido2'>
@@ -72,11 +114,12 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Servicios</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[servicios]" required></div>
+          <div class='col-md-3'><?php include 'checkbox.php' ?></div>
         </div>
         <div class='row contenido2'>
-          <div class='col-md-6'><b>Descripcion</b></div>
-          <div class='col-md-3'><input type="text" class="form-control" name="datos[descripcion]" required></div>
+          <div class='col-md-12'>
+          <label for="contents">Descripcion</label>
+          <textarea name="text" class="summernote" id="contents" title="Contents" name="datos[descripcion]" required></textarea></div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Cómo Llegar</b></div>
@@ -94,7 +137,7 @@
       session_start();
       // capturamos los datos del post
       $cliente = $_POST['datos'];
-      $sql = "INSERT INTO `Lugar` (`u_rut`, `u_nombre`, `u_apaterno`, `u_amaterno`, `u_ciudad`, `u_comuna`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`)
+      $sql = "INSERT INTO `Lugar` (`l_nombre`, `id_tipo`, `l_direccion`, `l_localidad`, `u_amaterno`, `u_ciudad`, `u_comuna`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`)
       VALUES ('$cliente[rut]', '$cliente[nombre]', '$cliente[apaterno]', '$cliente[amaterno]', '$cliente[ciudad]', '$cliente[comuna]', '$cliente[telefono]', '$cliente[fnac]', '$cliente[email]', '$cliente[pass]')";
       echo "Usuario igresado";
       // se ejecuta y cierra la bbdd
@@ -108,9 +151,5 @@
 
     <?php endif; ?>
   </div>
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
