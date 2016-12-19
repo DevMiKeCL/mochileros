@@ -140,8 +140,7 @@
       echo "<br />";
 
       $recepcion = $_POST['servicio'];
-      // conectamos a la base de datos
-      include 'conexion.php';
+
       //verificamos la integridad de la variable
       //var_dump($recepcion);
       $j = 0;
