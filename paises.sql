@@ -3,8 +3,8 @@ CREATE TABLE `paises` (
 `iso` char(2) DEFAULT NULL,
 `nombre` varchar(80) DEFAULT NULL,
 PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
- 
+) ENGINE=MyISAM DEFAULT CHARSET=utf8_spanish_ci AUTO_INCREMENT=1 ;
+
 INSERT INTO `paises` VALUES(1, 'AF', 'Afganistán');
 INSERT INTO `paises` VALUES(2, 'AX', 'Islas Gland');
 INSERT INTO `paises` VALUES(3, 'AL', 'Albania');

@@ -2,7 +2,7 @@
     // iniciamos conexion a la bbdd
     include 'conexion.php';
     // se ejecuta consulta sql y capturan resultados en $result
-    $sqls = "SELECT * FROM tipo_lugar";
+    $sqls = "SELECT * FROM `TIPO_LUGAR`";
     $resultado = $conn->query($sqls);
     //var_dump($resultado);
     if ($resultado->num_rows > 0) {

@@ -41,7 +41,7 @@
       // conectamos a la base de datos
       include 'conexion.php';
       // iniciamos session
-      session_start();
+      //session_start();
       // capturamos los datos del post
       $servicio = $_POST['datos'];
       $formateo[nombre] = strtoupper($servicio[nombre]);
@@ -57,7 +57,7 @@
       $conn->query($sql2);
       $conn->close();
       // guardamos la variable de session cliente
-      $_SESSION['servicio'] = $servicio;
+      //$_SESSION['servicio'] = $servicio;
       // cargamos el siguiente paso, crear equipo
       //header('Location: crear_equipo.php');
       ?>
