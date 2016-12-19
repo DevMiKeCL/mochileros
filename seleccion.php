@@ -134,7 +134,7 @@
         </table>
       </form>
     <?php else:
-      $recepcion = $_POST['datos'];
+      $recepcion = $_POST['servicio'];
       // conectamos a la base de datos
       include 'conexion.php';
       //verificamos la integridad de la variable

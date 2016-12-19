@@ -21,24 +21,11 @@
     <script type="text/javascript" src="summernote/dist/summernote.js"></script>
 
     <script src="js/scripts.js"></script>
-    <script type="text/javascript">
-      $(function() {
-        $('.summernote').summernote({
-          height: 200
-        });
-
-        $('form').on('submit', function (e) {
-          e.preventDefault();
-          alert($('.summernote').summernote('code'));
-          alert($('.summernote').val());
-        });
-      });
-    </script>
   </head>
   <body>
     <div class="container">
     <?php if (!isset($_POST['crear_lugar'])): ?>
-      <form action="addplace.php" method="post">
+      <form action="addplace.php" method="POST" id="postForm" enctype="multipart/form-data" onsubmit="return postForm()">
         <div class='row encabezado'>
           <div class='col-md-6'><h3>Crear Lugar</h3></div>
           <div class='col-md-6'></div>
@@ -119,7 +106,8 @@
         <div class='row contenido2'>
           <div class='col-md-12'>
           <label for="contents">Descripcion</label>
-          <textarea name="text" class="summernote" id="contents" title="Contents" name="datos[descripcion]" required></textarea></div>
+          <textarea class="input-block-level" id="summernote" name="content" rows="18" required></textarea>
+          </div>
         </div>
         <div class='row contenido2'>
           <div class='col-md-6'><b>Cómo Llegar</b></div>
@@ -134,22 +122,87 @@
       // conectamos a la base de datos
       include 'conexion.php';
       // iniciamos session
-      session_start();
+      //session_start();
       // capturamos los datos del post
-      $cliente = $_POST['datos'];
-      $sql = "INSERT INTO `Lugar` (`l_nombre`, `id_tipo`, `l_direccion`, `l_localidad`, `u_amaterno`, `u_ciudad`, `u_comuna`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`)
-      VALUES ('$cliente[rut]', '$cliente[nombre]', '$cliente[apaterno]', '$cliente[amaterno]', '$cliente[ciudad]', '$cliente[comuna]', '$cliente[telefono]', '$cliente[fnac]', '$cliente[email]', '$cliente[pass]')";
+      $lugar = $_POST['datos'];
+      $descripcion = base64_encode($_POST['content']);
+      //$servicio = $_POST['servicio'];
+      echo "<br />";
+      var_dump($lugar);
+      echo "<br />";
+      var_dump($descripcion);
+      echo "<br />";
+      $sql = "INSERT INTO `Lugar` (`l_nombre`, `id_tipo`, `l_direccion`, `l_localidad`, `l_telefono`, `l_facebook`, `l_twitter`, `l_whatsapp`, `l_descripcion`, `l_comollegar`)
+      VALUES ('$lugar[nombre]', '$lugar[tipo]', '$lugar[direccion]', '$lugar[localidad]', '$lugar[telefono]', '$lugar[facebook]', '$lugar[twitter]', '$lugar[whatsapp]', '$descripcion', '$lugar[comollegar]')";
       echo "Usuario igresado";
+      echo "<br />";
+      echo "$sql";
+      echo "<br />";
+
+      $recepcion = $_POST['servicio'];
+      // conectamos a la base de datos
+      include 'conexion.php';
+      //verificamos la integridad de la variable
+      //var_dump($recepcion);
+      $j = 0;
+      foreach ($recepcion as $serv) {
+        if (isset($serv)) {
+          $recepcion2[$j] = $serv;
+          $j++;
+          // si hay contenido se imprime el contador j
+          //echo "imprime j $j <br />";
+        }else {
+          echo "no hay contenido <br />";
+        }
+        // verificamos el contenido
+        //echo "$serv <br />";
+      }
+      //echo "<h3>var_dump final</h3>";
+      //var_dump($recepcion2);
+      $valores = '1';
+      if (count($recepcion2) > 1) {
+        $i = 0;
+        $str = $recepcion2[$i];
+        for ($i=1; $i < count($recepcion2) ; $i++) {
+          $str = $str.'`, `'.$recepcion2[$i];
+          $valores = $valores. "', '1";
+          //echo "imprime i $i <br />";
+        }
+      }else {
+        $i = 0;
+        $str = $recepcion2[$i];
+      }
+      $sql1= 'INSERT INTO `servicio` (`'.$str.'`)';
+      $sql2= "VALUES ('$valores')";
+      // sql final
+      $sql3 = $sql1. $sql2;
       // se ejecuta y cierra la bbdd
-      $conn->query($sql);
-      $conn->close();
+      echo $sql3;
+      // se ejecuta y cierra la bbdd
+      //$conn->query($sql);
+      //$conn->close();
       // guardamos la variable de session cliente
-      $_SESSION['cliente'] = $cliente;
+      //$_SESSION['cliente'] = $cliente;
       // cargamos el siguiente paso, crear equipo
       //header('Location: crear_equipo.php');
+
+
+
+
+
       ?>
 
     <?php endif; ?>
   </div>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('#summernote').summernote({
+      height: "500px"
+    });
+  });
+  var postForm = function() {
+    var content = $('textarea[name="content"]').html($('#summernote').code());
+  }
+  </script>
   </body>
 </html>

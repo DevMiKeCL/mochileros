@@ -15,7 +15,7 @@
         //}else {
         echo '<span class="button-checkbox">
             <button type="button" class="btn btn-xs" data-color="primary">'.$rows["LS_NOMBRE"].'</button>
-            <input type="checkbox" class="hidden" name="datos['.$i.']" value="'.$rows["NOM_COLUMNA"].'" />
+            <input type="checkbox" class="hidden" name="servicio['.$i.']" value="'.$rows["NOM_COLUMNA"].'" />
         </span>';
         // <input type="checkbox" class="hidden" name="datos['.$i.']" value="'.$rows["NOM_COLUMNA"].'" checked />
 

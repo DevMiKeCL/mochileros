@@ -42,22 +42,18 @@
 				</form>
 			</div>
 		<?php else:
+			//capturamos la variable de javascript a php encodificada base64
 			$mensaje = base64_encode($_POST['content']);
 			var_dump($mensaje);
 			include 'conexion.php';
 			$sql = "INSERT INTO `mensajes` (`mensaje`) VALUES ('$mensaje')";
 			echo "mensaje igresado";
-			//echo "$article_code";
 			// se ejecuta y cierra la bbdd
 			$conn->query($sql);
 			$conn->close();
 			?>
-
 		<?php endif; ?>
-
-
 	</div>
-
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$('#summernote').summernote({
@@ -68,10 +64,10 @@
 		var content = $('textarea[name="content"]').html($('#summernote').code());
 	}
 	</script>
-	<div class="container">
-	<h2>Lista de mensajes</h2>
-	<p>mensajes ingresados</p>
-	<?php include 'tablam.php'; ?>
-</div>
+		<div class="container">
+			<h2>Lista de mensajes</h2>
+			<p>mensajes ingresados</p>
+			<?php include 'tablam.php'; ?>
+		</div>
 	</body>
 </html>
