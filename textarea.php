@@ -27,30 +27,36 @@
 		<script src="summernote/dist/summernote.js"></script>
 	<body>
 	<div class="container">
-		<div class="row">
-			<div class="span12">
-				<h2>POST DATA</h2>
-				<pre>
-				<?php print_r($_POST); ?>
-				</pre>
-				<pre>
-				<?php echo htmlspecialchars($_POST['content']); ?>
-				</pre>
+		<?php if (!isset($_POST['enviar_texto'])): ?>
+			<div class="row">
+				<form class="span12" id="postForm" action="textarea.php" method="POST" enctype="multipart/form-data" onsubmit="return postForm()">
+					<fieldset>
+						<legend>Texto Requerido</legend>
+						<p class="container">
+							<textarea class="input-block-level" id="summernote" name="content" rows="18" required>
+							</textarea>
+						</p>
+					</fieldset>
+					<button type="submit" class="btn btn-primary" name="enviar_texto">Enviar Texto</button>
+					<button type="button" id="cancel" class="btn">Cancelar</button>
+				</form>
 			</div>
-		</div>
-		<div class="row">
-			<form class="span12" id="postForm" action="textarea.php" method="POST" enctype="multipart/form-data" onsubmit="return postForm()">
-				<fieldset>
-					<legend>Make Post</legend>
-					<p class="container">
-						<textarea class="input-block-level" id="summernote" name="content" rows="18">
-						</textarea>
-					</p>
-				</fieldset>
-				<button type="submit" class="btn btn-primary">Save changes</button>
-				<button type="button" id="cancel" class="btn">Cancel</button>
-			</form>
-		</div>
+		<?php else:
+			$str = htmlspecialchars($_POST['content']);
+			$article_code = base64_encode($_POST['content']);
+			var_dump($article_code);
+			include 'conexion.php';
+			$sql = "INSERT INTO `mensajes` (`mensaje`) VALUES ('$article_code')";
+			echo "mensaje igresado";
+			echo "$article_code";
+			// se ejecuta y cierra la bbdd
+			$conn->query($sql);
+			$conn->close();
+			?>
+
+		<?php endif; ?>
+
+
 	</div>
 
 	<script type="text/javascript">
@@ -63,5 +69,10 @@
 		var content = $('textarea[name="content"]').html($('#summernote').code());
 	}
 	</script>
+	<div class="container">
+	<h2>Lista de mensajes</h2>
+	<p>mensajes ingresados</p>
+	<?php include 'tablam.php'; ?>
+</div>
 	</body>
 </html>
