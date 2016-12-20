@@ -48,10 +48,12 @@
       $formateo[nombre] = str_replace(" ", "", $formateo[nombre]);
       $sql = "INSERT INTO `LISTA_SERVICIO` (`ls_nombre`, `nom_columna`)
       VALUES ('$servicio[nombre]', '$formateo[nombre]')";
-      $sql2 = "ALTER TABLE `servicio` ADD `$formateo[nombre]` BOOLEAN NOT NULL AFTER `ID_LSERVICIO`;";
+      $sql2 = "ALTER TABLE `SERVICIO` ADD `$formateo[nombre]` BOOLEAN NOT NULL DEFAULT '0' AFTER `ID_LSERVICIO`;";
       echo "Servicio igresado";
       echo "<br />";
       echo $sql;
+      echo "<br />";
+      echo $sql2;
       // se ejecuta y cierra la bbdd
       $conn->query($sql);
       $conn->query($sql2);
