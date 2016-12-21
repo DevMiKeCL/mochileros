@@ -8,10 +8,20 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <title>Formulario</title>
-
+    <!-- include jquery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
+    <!-- include scripts -->
+    <script src="js/scripts.js"></script>
+    <!-- include libraries BS3 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> -->
+    <script src="js/bootstrap.min.js"></script>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
     <style type="text/css">
       body {
         padding-top: 0px;
@@ -197,19 +207,24 @@
       VALUES ('$usuario[nombre]', '$usuario[apaterno]', '$usuario[amaterno]', '$usuario[pais]', '$usuario[telefono]', '$usuario[fnac]', '$usuario[email]', '$usuario[pass]', 1, 'TRUE')";
       echo "Usuario igresado";
       echo "<br />";
+
       echo $sql;
+      echo "<br />";
       $latitude = $_POST["latitude"];
       $longitude = $_POST["longitude"];
       $accuracy = $_POST["accuracy"];
       echo "Latitude:".$latitude."</br>";
       echo "longitude:".$longitude."</br>";
       echo "Exactitud:".$accuracy."</br>";
+
+      $sql3 = "INSERT INTO `UBICACION_ACTUAL` (`id_ubicacion`, `ID_USUARIO`, `u_amaterno`, `u_pais`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`, `id_tusuario`, `u_estado`)
+      VALUES ('$usuario[nombre]', '$usuario[apaterno]', '$usuario[amaterno]', '$usuario[pais]', '$usuario[telefono]', '$usuario[fnac]', '$usuario[email]', '$usuario[pass]', 1, 'TRUE')";
       //echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center='.$latitude.','.$longitude.'&markers=color:red%7Clabel:C%7C'.$latitude.','.$longitude.'&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo">';
       echo '<a href="https://www.google.com/maps/dir/'.$latitude.','.$longitude.'/San+Martin+1138,+coquimbo,+region+de+coquimbo">
       <img src="https://maps.googleapis.com/maps/api/staticmap?
       center=San+Martin+1138,+coquimbo,+region+de+coquimbo&markers=color:blue%7Clabel:C%7CSan+Martin+1138,+coquimbo,
       +region+de+coquimbo&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
-       ?>
+
       // se ejecuta y cierra la bbdd
       //$conn->query($sql);
       //$conn->close();
@@ -221,12 +236,6 @@
 
     <?php endif; ?>
   </div>
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-  <script src="js/scripts.js"></script>
+
   </body>
 </html>
