@@ -177,6 +177,9 @@
           <div class='col-md-2'></div>
         </div>
         <div class='row pie'>
+          <input type="hidden" id="latitude" name="latitude" value="" />
+          <input type="hidden" id="longitude" name="longitude" value="" />
+          <input type="hidden" id="accuracy" name="accuracy" value="" />
           <div class='col-md-3'></div>
           <div class='col-md-2'></div>
           <div class='col-md-2'><button class="btn btn-primary btn-block" type="submit" name="crear_usuario">Crear Usuario</button></div>
@@ -187,19 +190,31 @@
       // conectamos a la base de datos
       include 'conexion.php';
       // iniciamos session
-      session_start();
+      //session_start();
       // capturamos los datos del post
       $usuario = $_POST['datos'];
-      $sql = "INSERT INTO `Usuario` (`u_nombre`, `u_apaterno`, `u_amaterno`, `u_pais`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`, `id_tusuario`, `u_estado`)
+      $sql = "INSERT INTO `USUARIO` (`u_nombre`, `u_apaterno`, `u_amaterno`, `u_pais`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`, `id_tusuario`, `u_estado`)
       VALUES ('$usuario[nombre]', '$usuario[apaterno]', '$usuario[amaterno]', '$usuario[pais]', '$usuario[telefono]', '$usuario[fnac]', '$usuario[email]', '$usuario[pass]', 1, 'TRUE')";
       echo "Usuario igresado";
       echo "<br />";
       echo $sql;
+      $latitude = $_POST["latitude"];
+      $longitude = $_POST["longitude"];
+      $accuracy = $_POST["accuracy"];
+      echo "Latitude:".$latitude."</br>";
+      echo "longitude:".$longitude."</br>";
+      echo "Exactitud:".$accuracy."</br>";
+      //echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center='.$latitude.','.$longitude.'&markers=color:red%7Clabel:C%7C'.$latitude.','.$longitude.'&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo">';
+      echo '<a href="https://www.google.com/maps/dir/'.$latitude.','.$longitude.'/San+Martin+1138,+coquimbo,+region+de+coquimbo">
+      <img src="https://maps.googleapis.com/maps/api/staticmap?
+      center=San+Martin+1138,+coquimbo,+region+de+coquimbo&markers=color:blue%7Clabel:C%7CSan+Martin+1138,+coquimbo,
+      +region+de+coquimbo&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
+       ?>
       // se ejecuta y cierra la bbdd
-      $conn->query($sql);
-      $conn->close();
+      //$conn->query($sql);
+      //$conn->close();
       // guardamos la variable de session cliente
-      $_SESSION['usuario'] = $usuario;
+      //$_SESSION['usuario'] = $usuario;
       // cargamos el siguiente paso, crear equipo
       //header('Location: crear_equipo.php');
       ?>

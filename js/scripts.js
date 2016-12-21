@@ -109,3 +109,37 @@ $(function () {
         init();
     });
 });
+
+function getLocation() {
+
+     var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+     };
+
+    function success(pos) {
+       successFunction(pos);
+    };
+
+    function error(err) {
+        console.warn('ERROR(' + err.code + '): ' + err.message);
+    };
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error,options);
+    } else {
+        //x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function successFunction(position) {
+   var lat = position.coords.latitude;
+   var longi = position.coords.longitude;
+   var acu = position.coords.accuracy;
+
+    $('#latitude').val(lat);
+    $('#longitude').val(longi);
+    $('#accuracy').val(acu);
+}
+getLocation();
