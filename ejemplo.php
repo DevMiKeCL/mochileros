@@ -17,7 +17,8 @@
     echo "longitude:".$longitude."</br>";
     echo "Exactitud:".$accuracy."</br>";
     //echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center='.$latitude.','.$longitude.'&markers=color:red%7Clabel:C%7C'.$latitude.','.$longitude.'&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo">';
-    echo '<a href="https://www.google.com/maps/dir/'.$latitude.','.$longitude.'/San+Martin+1138,+coquimbo,+region+de+coquimbo"><img src="https://maps.googleapis.com/maps/api/staticmap?
+    echo '<a href="https://www.google.com/maps/dir/'.$latitude.','.$longitude.'/San+Martin+1138,+coquimbo,+region+de+coquimbo">
+    <img src="https://maps.googleapis.com/maps/api/staticmap?
     center=San+Martin+1138,+coquimbo,+region+de+coquimbo&markers=color:blue%7Clabel:C%7CSan+Martin+1138,+coquimbo,
     +region+de+coquimbo&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
      ?>
