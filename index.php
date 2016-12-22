@@ -47,7 +47,7 @@
 				</ol>
 				<div class="carousel-inner">
 					<div class="item active">
-						<img alt="Carousel Bootstrap First" src="http://imageshack.com/a/img923/2666/stAm18.png">
+						<img alt="Carousel Bootstrap First" src="img/slide/01.jpg">
 						<div class="carousel-caption">
 							<h4>
 								LAS GREDAS
@@ -58,7 +58,7 @@
 						</div>
 					</div>
 					<div class="item">
-						<img alt="Carousel Bootstrap Second" src="http://imageshack.com/a/img921/83/zxamMn.png">
+						<img alt="Carousel Bootstrap Second" src="img/slide/02.jpg">
 						<div class="carousel-caption">
 							<h4>
 								MONTAÑAS DE ELQUI
@@ -69,7 +69,7 @@
 						</div>
 					</div>
 					<div class="item">
-						<img alt="Carousel Bootstrap Third" src="http://imageshack.com/a/img921/5909/sQ8O8t.png">
+						<img alt="Carousel Bootstrap Third" src="img/slide/03.jpg">
 						<div class="carousel-caption">
 							<h4>
 								LAS PATAGUAS
