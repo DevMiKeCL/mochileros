@@ -143,3 +143,12 @@ function successFunction(position) {
     $('#accuracy').val(acu);
 }
 getLocation();
+
+$(document).ready(function() {
+  $('#summernote').summernote({
+    height: "500px"
+  });
+});
+var postForm = function() {
+  var content = $('textarea[name="content"]').html($('#summernote').code());
+}

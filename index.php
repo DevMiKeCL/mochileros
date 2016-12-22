@@ -1,42 +1,6 @@
 <?php
-  session_start();
-  if (isset($_POST['cerrar'])) {
-    session_destroy();
-    sleep(3);
-    header('Location: index.php');
-  }
-
-  if (isset($_POST['iniciar'])) {
-    include 'conexion.php';
-    //se almacena en $usuario lo capturado en el form
-    $usuario = $_POST['usuario'];
-    $sql = "SELECT `id`, `nombre`, `pass` FROM `LOGIN` WHERE `nombre` = '$usuario[nombre]' AND `pass` ='$usuario[pass]'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    // se crea, ejecuta y captura resultado de consulta sql
-    //var_dump($row);
-    //echo "<br />";
-    // se valida el usuario para acceder al menu
-    if ($usuario['nombre'] == $row["nombre"] && $usuario['pass'] == $row["pass"]  ) {
-      //echo "tecnico validado";
-      $_SESSION['user'] = $row;
-      //header('Location: menu.php');
-    } else {
-      echo "error $sql";
-      //header('Location: index.php');
-    }
-    $conn->close();
-  }
-
-  //if (isset($_SESSION['user'])){
-  //  $user = $_SESSION['user'];
-  //  echo 'Hola '.$user['nombre'];
-  //}
-
-  //var_dump($_SESSION['usuario']);
-
-
-?>
+  include 'session.php';
+ ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -59,113 +23,7 @@
     <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-					</button> <a class="navbar-brand" href="index.html">MOCHILEROS</a>
-				</div>
-
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active">
-							<a href="#">Acerca de</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#">Cámpines</a>
-								</li>
-								<li>
-									<a href="#">Restaurantes</a>
-								</li>
-								<li>
-									<a href="#">Locomoción</a>
-								</li>
-								<li>
-									<a href="#">Sitios de Interes</a>
-								</li>
-								<!-- <li class="divider">
-								</li>
-								<li>
-									<a href="#">One more separated link</a>
-								</li> -->
-							</ul>
-						</li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input placeholder="Busca tu sitio"type="text" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-default">
-							Buscar
-						</button>
-					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="index.html"> <img class="flag" src="img/Chile.png"> </a>
-            </li>
-            <li>
-              <a href="index.html"> <img class="flag" src="img/United States.png"> </a>
-            </li>
-            <!-- <li>
-              <a href="index.html"> <img class="flag" src="img/Brazil.png"> </a>
-						</li> -->
-            <?php if (isset($_SESSION['user'])):
-              $user = $_SESSION['user'];
-              echo '<li class="dropdown">
-  							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hola '.$user['nombre'].'<strong class="caret"></strong></a>
-  							<ul class="dropdown-menu">
-                  <form action="index.php" method="post">
-                    <li>
-                      <button class="btn btn-block" type="submit" id="cerrar" name="cerrar">Cerrar Sesion</button>
-                    </li>
-                  </form>
-                    ';
-              ?>
-
-            <?php else:
-              echo '
-              <li class="dropdown">
-  							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ingresa/Registrate<strong class="caret"></strong></a>
-  							<ul class="dropdown-menu">
-                  <form action="index.php" method="post">
-                    <li>
-                      <input type="text" class="form-control" placeholder="Nombre" name="usuario[nombre]" required>
-                    </li>
-                    <li>
-                      <input type="password" class="form-control" placeholder="Contraseña" name="usuario[pass]" required>
-                    </li>
-                    <li>
-                      <button class="btn btn-primary btn-block" type="submit" id="iniciar" name="iniciar">
-                        Aceptar
-                      </button>
-                  </form>
-                      <!-- <button type="submit" class="btn btn-default">
-                        Cancelar
-                      </button> -->
-                    </li>';
-              ?>
-
-            <?php endif; ?>
-                <li class="divider">
-                </li>
-                <li>
-                  <a href="adduser.php">Registro Usuarios Nuevos</a>
-                </li>
-								<li class="divider">
-								</li>
-								<li>
-									<a href="#">Ingreso Administrador</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-
-			</nav>
+			<?php include 'navbar.php'; ?>
 			<div class="jumbotron">
 				<h2>
 					¡BIENVENIDO A MOCHILEROS CHILE!
@@ -297,5 +155,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
+    <!-- include summernote -->
+    <script type="text/javascript" src="summernote/dist/summernote.js"></script>
   </body>
 </html>

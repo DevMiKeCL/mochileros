@@ -8,19 +8,13 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <title>Crear Lugar</title>
     <!-- include jquery -->
-    <script src="js/jquery.min.js"></script>
+
     <!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
 
     <!-- include libraries BS3 -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <!-- <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- include summernote -->
     <link rel="stylesheet" href="summernote/dist/summernote.css">
-    <script type="text/javascript" src="summernote/dist/summernote.js"></script>
 
-    <script src="js/scripts.js"></script>
   </head>
   <body>
     <div class="container">
@@ -184,24 +178,15 @@
       //$_SESSION['cliente'] = $cliente;
       // cargamos el siguiente paso, crear equipo
       //header('Location: crear_equipo.php');
-
-
-
-
-
-      ?>
+    ?>
 
     <?php endif; ?>
   </div>
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $('#summernote').summernote({
-      height: "500px"
-    });
-  });
-  var postForm = function() {
-    var content = $('textarea[name="content"]').html($('#summernote').code());
-  }
-  </script>
+  <!-- <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <!-- include summernote -->
+  <script type="text/javascript" src="summernote/dist/summernote.js"></script>
+  <script src="js/scripts.js"></script>
   </body>
 </html>
