@@ -33,32 +33,21 @@
   <div class="container">
     <div class="row">
   		<div class="col-md-4">
-        <?php
-          if (isset($_POST['localizar'])) {
-            $locate = $_POST['loc'];
-            //var_dump($locate);
-            echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center=
-            -29.9538635,-71.3424945&markers=color:red%7Clabel:C%7C-29.9538635,
-            -71.3424945&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo">';
-
-
-          //var_dump($locate);
-          //echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center='
-          //.$locate['lat'].','.$locate['lon'].'&markers=color:red%7Clabel:C%7C'
-          //.$locate['lat'].','.$locate['lon'].'&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo">';
-        }
-
-         ?>
+        <h3>Reseña de la cabaña</h3>
+        <br />
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   		</div>
 
   		<div class="col-md-4">
-        <form class="" action="locate.php" method="post">
-          <input type="hidden" id="latitude" name="loc[lat]" value="" />
-          <input type="hidden" id="longitude" name="loc[lon]" value="" />
-          <input type="hidden" id="accuracy" name="loc[acu]" value="" />
-            <button class="btn btn-primary btn-block" type="submit" id="localizar" name="localizar">
-              Localizar
-            </button>
+        <h4>Ubicacion</h4>
+        <?php
+          echo '
+          <a href="https://www.google.com/maps/dir/-29.9538635,-71.3424945/-30.12128,-70.4957807">
+          <img src="https://maps.googleapis.com/maps/api/staticmap?center=
+          -30.12128,-70.4957807&markers=color:red%7Clabel:C%7C-30.12128,
+          -70.4957807&zoom=15&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
+
+         ?>
         </form>
   		</div>
   		<div class="col-md-4">
