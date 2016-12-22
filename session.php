@@ -23,16 +23,22 @@
     if ($usuario['nombre'] == $row["nombre"] && $usuario['pass'] == $row["pass"]  ) {
       //echo "tecnico validado";
       $_SESSION['user'] = $row;
+      $usr = $_SESSION['user'];
+      sleep(1);
       // guardamos nuestra localizacion actual
       $loc = $_POST['geo'];
+      $sqlub = "INSERT INTO `UBICACION_ACTUAL` (`id_usuario`, `ub_latitud`, `ub_longitud`, `ub_exactitud`)
+      VALUES ('$usr[id]', '$loc[lat]', '$loc[lon]', '$loc[acu]')";
+      $conn->query($sqlub);
+      //echo "$sqlub";
       //var_dump($loc);
       //UBICACION ACTUAL
       //echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center='.$loc['lat'].','.$loc['lon'].'&markers=color:red%7Clabel:C%7C'.$loc['lat'].','.$loc['lon'].'&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo">';
       //EJEMPLO DESTINO
-      echo '<a href="https://www.google.com/maps/dir/'.$latitude.','.$longitude.'/San+Martin+1138,+coquimbo,+region+de+coquimbo">
-      <img src="https://maps.googleapis.com/maps/api/staticmap?
-      center=San+Martin+1138,+coquimbo,+region+de+coquimbo&markers=color:blue%7Clabel:C%7CSan+Martin+1138,+coquimbo,
-      +region+de+coquimbo&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
+      //echo '<a href="https://www.google.com/maps/dir/'.$loc['lat'].','.$loc['lon'].'/San+Martin+1138,+coquimbo,+region+de+coquimbo">
+      //<img src="https://maps.googleapis.com/maps/api/staticmap?
+      //center=San+Martin+1138,+coquimbo,+region+de+coquimbo&markers=color:blue%7Clabel:C%7CSan+Martin+1138,+coquimbo,
+      //+region+de+coquimbo&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
       //header('Location: menu.php');
     } else {
       echo "error $sql";
