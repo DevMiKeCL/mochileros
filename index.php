@@ -15,15 +15,15 @@
 
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
-    rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
 
-    <div class="container-fluid">
+    <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<?php include 'navbar.php'; ?>
+			</nav>
 			<div class="jumbotron">
 				<h2>
 					¡BIENVENIDO A MOCHILEROS CHILE!
@@ -35,7 +35,8 @@
 					<a class="btn btn-primary btn-large" href="#">INGRESAR</a>
 				</p> -->
 			</div>
-			<div class="carousel slide" id="carousel-922032">
+      <!-- aqui escribo > -->
+      <div class="carousel slide" id="carousel-922032">
 				<ol class="carousel-indicators">
 					<li class="active" data-slide-to="0" data-target="#carousel-922032">
 					</li>
@@ -80,9 +81,10 @@
 					</div>
 				</div> <a class="left carousel-control" href="#carousel-922032" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-922032" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 			</div>
+    <!-- aqui termino -->
 		</div>
 	</div>
-	<div class="row">
+  <div class="row">
 		<div class="col-md-4">
 			<h2>
 				Las Gredas
@@ -118,7 +120,7 @@
 		</div>
 	</div>
 </div>
-<footer class="section section-primary">
+    <footer class="section section-primary">
       <div class="container">
         <div class="row">
           <div class="col-sm-6">
@@ -155,7 +157,5 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
-    <!-- include summernote -->
-    <script type="text/javascript" src="summernote/dist/summernote.js"></script>
   </body>
 </html>

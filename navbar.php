@@ -72,9 +72,9 @@
           <ul class="dropdown-menu">
             <form action="index.php" method="post">
               <li>
-                <input type="hidden" id="latitude" name="latitude" value="" />
-                <input type="hidden" id="longitude" name="longitude" value="" />
-                <input type="hidden" id="accuracy" name="accuracy" value="" />
+                <input type="hidden" id="latitude" name="geo[lat]" value="" />
+                <input type="hidden" id="longitude" name="geo[lon]" value="" />
+                <input type="hidden" id="accuracy" name="geo[acu]" value="" />
                 <input type="text" class="form-control" placeholder="correo electronico" name="usuario[nombre]" required>
               </li>
               <li>

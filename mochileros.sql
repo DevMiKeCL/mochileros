@@ -226,6 +226,7 @@ create table UBICACION_ACTUAL
    ID_USUARIO           int,
    UB_LATITUD           varchar(50),
    UB_LONGITUD          varchar(50),
+   UB_EXACTITUD         varchar(50),
    UB_FECHA             datetime,
    primary key (ID_UBICACION)
 );
