@@ -4,16 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <title>Crear Lugar</title>
+    <title>Escribir Texto</title>
     <!-- include jquery -->
-
+    <script src="js/jquery.min.js"></script>
     <!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
 
     <!-- include libraries BS3 -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- include summernote -->
     <link rel="stylesheet" href="summernote/dist/summernote.css">
+    <script type="text/javascript" src="summernote/dist/summernote.js"></script>
+
+    <script src="js/scripts.js"></script>
+
+		<!-- include summernote css/js-->
+		<link href="summernote/dist/summernote.css" / rel="stylesheet">
+		<script src="summernote/dist/summernote.js"></script>
 
   </head>
   <body>
@@ -183,10 +193,17 @@
     <?php endif; ?>
   </div>
   <!-- <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.min.js"></script>
-  <!-- include summernote -->
-  <script type="text/javascript" src="summernote/dist/summernote.js"></script>
-  <script src="js/scripts.js"></script>
+  <script type="text/javascript">
+
+  $(document).ready(function() {
+    $('#summernote').summernote({
+      height: "500px"
+    });
+  });
+  var postForm = function() {
+    var content = $('textarea[name="content"]').php($('#summernote').code());
+  }
+
+  </script>
   </body>
 </html>
