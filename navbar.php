@@ -62,6 +62,12 @@
                 <button class="btn btn-block" type="submit" id="cerrar" name="cerrar">Cerrar Sesion</button>
               </li>
             </form>
+            <li class="divider">
+            </li>
+            <li>
+              <a href="locate.php">Localizar mi Ubicacion</a>
+            </li>
+            </ul>
               ';
         ?>
 

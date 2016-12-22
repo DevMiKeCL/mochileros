@@ -33,14 +33,26 @@
   <div class="container">
     <div class="row">
   		<div class="col-md-4">
+        <?php
+        if (isset($_POST['localizar'])) {
+          $locate = $_POST['loc'];
+          var_dump($locate);
+          echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center='
+          .$locate['lat'].','.$locate['lon'].'&markers=color:red%7Clabel:C%7C'
+          .$locate['lat'].','.$locate['lon'].'&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo">';
+        }
 
+         ?>
   		</div>
 
   		<div class="col-md-4">
         <form class="" action="locate.php" method="post">
-          <input type="hidden" id="latitude" name="geo[lat]" value="" />
-          <input type="hidden" id="longitude" name="geo[lon]" value="" />
-          <input type="hidden" id="accuracy" name="geo[acu]" value="" />
+          <input type="hidden" id="latitude" name="loc[lat]" value="" />
+          <input type="hidden" id="longitude" name="loc[lon]" value="" />
+          <input type="hidden" id="accuracy" name="loc[acu]" value="" />
+            <button class="btn btn-primary btn-block" type="submit" id="localizar" name="localizar">
+              Localizar
+            </button>
         </form>
   		</div>
   		<div class="col-md-4">

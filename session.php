@@ -7,7 +7,7 @@
   }
 
   if (isset($_SESSION['user'])) {
-    echo "variable cargada";
+    //echo "variable cargada";
   }
   if (isset($_POST['iniciar'])) {
     include 'conexion.php';
@@ -45,7 +45,6 @@
       session_destroy();
       //header('Location: index.php');
     }
-
     $conn->close();
   }
 
