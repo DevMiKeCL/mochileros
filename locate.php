@@ -38,11 +38,12 @@
             sleep(1);
             //obtener datos post y de session
             $locate = $_POST['loc'];
+            $locate['ip'] = $_SERVER['REMOTE_ADDR'];
             $usr = $_SESSION['user'];
             echo "<br />";
             echo "consulta sql: <br />";
-            $sqlub = "INSERT INTO `UBICACION_ACTUAL` (`id_usuario`, `ub_latitud`, `ub_longitud`, `ub_exactitud`)
-            VALUES ('$usr[id]', '$locate[lat]', '$locate[lon]', '$locate[acu]')";
+            $sqlub = "INSERT INTO `UBICACION_ACTUAL` (`id_usuario`, `ub_ip`, `ub_latitud`, `ub_longitud`, `ub_exactitud`)
+            VALUES ('$usr[id]', '$locate[ip]', '$locate[lat]', '$locate[lon]', '$locate[acu]')";
             echo "$sqlub";
             //$conn->query($sqlub);
             //echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center=

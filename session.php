@@ -27,8 +27,10 @@
       sleep(1);
       // guardamos nuestra localizacion actual
       $loc = $_POST['geo'];
-      $sqlub = "INSERT INTO `UBICACION_ACTUAL` (`id_usuario`, `ub_latitud`, `ub_longitud`, `ub_exactitud`)
-      VALUES ('$usr[id]', '$loc[lat]', '$loc[lon]', '$loc[acu]')";
+      $loc['ip'] = $_SERVER['REMOTE_ADDR'];
+      //var_dump($loc);
+      $sqlub = "INSERT INTO `UBICACION_ACTUAL` (`id_usuario`, `ub_ip`, `ub_latitud`, `ub_longitud`, `ub_exactitud`)
+      VALUES ('$usr[id]', '$loc[ip]', '$loc[lat]', '$loc[lon]', '$loc[acu]')";
       $conn->query($sqlub);
 
       $_SESSION['ubicacion'] = $loc;
