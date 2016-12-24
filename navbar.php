@@ -65,7 +65,14 @@
             <li class="divider">
             </li>
             <li>
-              <a href="locate.php">Localizar mi Ubicacion</a>
+            <form class="" action="locate.php" method="post">
+              <input type="hidden" id="latitude" name="loc[lat]" value="" />
+              <input type="hidden" id="longitude" name="loc[lon]" value="" />
+              <input type="hidden" id="accuracy" name="loc[acu]" value="" />
+                <button class="btn btn-primary btn-block" type="submit" id="localizar" name="localizar">
+                  Localizar
+                </button>
+            </form>
             </li>
             </ul>
               ';

@@ -35,31 +35,36 @@
   		<div class="col-md-4">
         <?php
           if (isset($_POST['localizar'])) {
+            sleep(1);
+            //obtener datos post y de session
             $locate = $_POST['loc'];
-            //var_dump($locate);
-            echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center=
-            -29.9538635,-71.3424945&markers=color:red%7Clabel:C%7C-29.9538635,
-            -71.3424945&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo">';
+            $usr = $_SESSION['user'];
+            echo "<br />";
+            echo "consulta sql: <br />";
+            $sqlub = "INSERT INTO `UBICACION_ACTUAL` (`id_usuario`, `ub_latitud`, `ub_longitud`, `ub_exactitud`)
+            VALUES ('$usr[id]', '$locate[lat]', '$locate[lon]', '$locate[acu]')";
+            echo "$sqlub";
+            //$conn->query($sqlub);
+            //echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center=
+            //$locate[lat],$locate[lon]&markers=color:red%7Clabel:C%7C$locate[lat],
+            //$locate[lon]&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo">';
 
+            // en variable de session la ubicacion
+            $_SESSION['ubicacion'] = $locate;
+
+            //echo "variable de session: <br />";
+            //var_dump($_SESSION['ubicacion']);
 
           //var_dump($locate);
-          //echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center='
-          //.$locate['lat'].','.$locate['lon'].'&markers=color:red%7Clabel:C%7C'
-          //.$locate['lat'].','.$locate['lon'].'&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo">';
+          echo '<img src="https://maps.googleapis.com/maps/api/staticmap?center='
+          .$locate['lat'].','.$locate['lon'].'&markers=color:red%7Clabel:C%7C'
+          .$locate['lat'].','.$locate['lon'].'&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo">';
         }
 
          ?>
   		</div>
 
   		<div class="col-md-4">
-        <form class="" action="locate.php" method="post">
-          <input type="hidden" id="latitude" name="loc[lat]" value="" />
-          <input type="hidden" id="longitude" name="loc[lon]" value="" />
-          <input type="hidden" id="accuracy" name="loc[acu]" value="" />
-            <button class="btn btn-primary btn-block" type="submit" id="localizar" name="localizar">
-              Localizar
-            </button>
-        </form>
   		</div>
   		<div class="col-md-4">
 

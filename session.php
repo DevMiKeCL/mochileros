@@ -30,6 +30,11 @@
       $sqlub = "INSERT INTO `UBICACION_ACTUAL` (`id_usuario`, `ub_latitud`, `ub_longitud`, `ub_exactitud`)
       VALUES ('$usr[id]', '$loc[lat]', '$loc[lon]', '$loc[acu]')";
       $conn->query($sqlub);
+
+      $_SESSION['ubicacion'] = $loc;
+
+      //echo "variable de session: <br />";
+      //var_dump($_SESSION['ubicacion']);
       //echo "$sqlub";
       //var_dump($loc);
       //UBICACION ACTUAL
