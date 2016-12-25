@@ -6,14 +6,16 @@
     header('Location: index.php');
   }
 
-  if (isset($_SESSION['user'])) {
+  //if (isset($_SESSION['user'])) {
     //echo "variable cargada";
-  }
+  //}else {
+  //  header('Location: index.php');
+  //}
   if (isset($_POST['iniciar'])) {
     include 'conexion.php';
     //se almacena en $usuario lo capturado en el form
     $usuario = $_POST['usuario'];
-    $sql = "SELECT `ID_USUARIO`, `U_NOMBRE`, `U_EMAIL` FROM `USUARIO` WHERE `U_EMAIL` = '$usuario[email]' AND `U_PASS` ='$usuario[pass]'";
+    $sql = "SELECT `ID_USUARIO`, `ID_TUSUARIO`, `U_NOMBRE`, `U_EMAIL` FROM `USUARIO` WHERE `U_EMAIL` = '$usuario[email]' AND `U_PASS` ='$usuario[pass]'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     if ($usuario['email'] == $row["U_EMAIL"] ) {
@@ -44,7 +46,7 @@
       //header('Location: menu.php');
     } else {
       echo '
-      <div class="alert alert-danger alert-dismissible" role="alert">
+      <div class="alerta-autoclose alert alert-danger alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <strong>oops!</strong> Correo electrónico o contraseña incorrectos.
       </div>

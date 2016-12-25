@@ -73,9 +73,14 @@
                   Localizar
                 </button>
             </form>
-            </li>
-            </ul>
-              ';
+            </li>';
+            if ($user['ID_TUSUARIO'] == 2) {
+              echo '<li>
+                <a href="addplace.php">Crear Lugar</a>
+              </li></ul>';
+            } else {
+              echo '</ul>';
+            }
         ?>
 
       <?php else:

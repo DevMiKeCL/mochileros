@@ -143,3 +143,14 @@ function successFunction(position) {
     $('#accuracy').val(acu);
 }
 getLocation();
+
+
+$(document).ready(function () {
+
+window.setTimeout(function() {
+    $(".alerta-autoclose").fadeTo(1000, 0).slideUp(1000, function(){
+        $(this).remove();
+    });
+}, 5000);
+
+});
