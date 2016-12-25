@@ -55,7 +55,7 @@
       <?php if (isset($_SESSION['user'])):
         $user = $_SESSION['user'];
         echo '<li class="dropdown">
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hola '.$user['nombre'].'<strong class="caret"></strong></a>
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hola '.$user['U_NOMBRE'].'<strong class="caret"></strong></a>
           <ul class="dropdown-menu">
             <form action="index.php" method="post">
               <li>
@@ -88,7 +88,7 @@
                 <input type="hidden" id="latitude" name="geo[lat]" value="" />
                 <input type="hidden" id="longitude" name="geo[lon]" value="" />
                 <input type="hidden" id="accuracy" name="geo[acu]" value="" />
-                <input type="text" class="form-control" placeholder="correo electronico" name="usuario[nombre]" required>
+                <input type="email" class="form-control" placeholder="correo electronico" name="usuario[email]" required>
               </li>
               <li>
                 <input type="password" class="form-control" placeholder="Contraseña" name="usuario[pass]" required>

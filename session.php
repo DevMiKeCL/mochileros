@@ -13,15 +13,11 @@
     include 'conexion.php';
     //se almacena en $usuario lo capturado en el form
     $usuario = $_POST['usuario'];
-    $sql = "SELECT `id`, `nombre`, `pass` FROM `LOGIN` WHERE `nombre` = '$usuario[nombre]' AND `pass` ='$usuario[pass]'";
+    $sql = "SELECT `ID_USUARIO`, `U_NOMBRE`, `U_EMAIL` FROM `USUARIO` WHERE `U_EMAIL` = '$usuario[email]' AND `U_PASS` ='$usuario[pass]'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    // se crea, ejecuta y captura resultado de consulta sql
-    //var_dump($row);
-    //echo "<br />";
-    // se valida el usuario para acceder al menu
-    if ($usuario['nombre'] == $row["nombre"] && $usuario['pass'] == $row["pass"]  ) {
-      //echo "tecnico validado";
+    if ($usuario['email'] == $row["U_EMAIL"] ) {
+      //guardamos en nuestra variable de session;
       $_SESSION['user'] = $row;
       $usr = $_SESSION['user'];
       sleep(1);
@@ -30,9 +26,8 @@
       $loc['ip'] = $_SERVER['REMOTE_ADDR'];
       //var_dump($loc);
       $sqlub = "INSERT INTO `UBICACION_ACTUAL` (`id_usuario`, `ub_ip`, `ub_latitud`, `ub_longitud`, `ub_exactitud`)
-      VALUES ('$usr[id]', '$loc[ip]', '$loc[lat]', '$loc[lon]', '$loc[acu]')";
+      VALUES ('$usr[ID_USUARIO]', '$loc[ip]', '$loc[lat]', '$loc[lon]', '$loc[acu]')";
       $conn->query($sqlub);
-
       $_SESSION['ubicacion'] = $loc;
 
       //echo "variable de session: <br />";
@@ -48,7 +43,7 @@
       //+region+de+coquimbo&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
       //header('Location: menu.php');
     } else {
-      echo "error $sql";
+      echo "<br /> error <br /> $sql <br />";
       session_destroy();
       //header('Location: index.php');
     }

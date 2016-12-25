@@ -107,14 +107,22 @@
       include 'conexion.php';
       // capturamos los datos del post
       $usuario = $_POST['datosusuario'];
-      $sql = "INSERT INTO `USUARIO` (`u_nombre`, `u_apaterno`, `u_amaterno`, `u_pais`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`, `id_tusuario`, `u_estado`)
-      VALUES ('$usuario[nombre]', '$usuario[apaterno]', '$usuario[amaterno]', '$usuario[pais]', '$usuario[telefono]', '$usuario[fnac]', '$usuario[email]', '$usuario[pass]', 1, 'TRUE')";
-      echo "Usuario igresado";
-      echo "<br />";
-      //se ejecuta y cierra la bbdd
-      $conn->query($sql);
-      $conn->close();
+      $sql0 = "SELECT * FROM `USUARIO` WHERE `u_email` = '$usuario[email]'";
+      $resultado = $conn->query($sql0);
 
+      if ($resultado->num_rows > 0) {
+        echo "El correo que ingresaste ($usuario[email]) ya existe en nuestros registros";
+      }else {
+        $sql = "INSERT INTO `USUARIO` (`u_nombre`, `u_apaterno`, `u_amaterno`, `u_pais`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`, `id_tusuario`, `u_estado`)
+        VALUES ('$usuario[nombre]', '$usuario[apaterno]', '$usuario[amaterno]', '$usuario[pais]', '$usuario[telefono]', '$usuario[fnac]', '$usuario[email]', '$usuario[pass]', 1, 'TRUE')";
+        echo "Te has registrado exitosamente, ahora puedes iniciar sesion";
+        echo "<br />";
+        //se ejecuta y cierra la bbdd
+        $conn->query($sql);
+      }
+      $conn->close();
+      sleep(3);
+      header('Location: index.php');
       //echo $sql;
       //echo "<br />";
       //$latitude = $_POST["latitude"];
