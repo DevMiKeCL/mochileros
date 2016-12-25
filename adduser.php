@@ -111,7 +111,7 @@
       $resultado = $conn->query($sql0);
 
       if ($resultado->num_rows > 0) {
-        echo "El correo que ingresaste ($usuario[email]) ya existe en nuestros registros";
+        echo '<div class="alert alert-danger" role="alert">El correo que ingresaste ('.$usuario['email'].') ya existe en nuestros registros</div>';
       }else {
         $sql = "INSERT INTO `USUARIO` (`u_nombre`, `u_apaterno`, `u_amaterno`, `u_pais`, `u_telefono`, `u_fnac`, `u_email`, `u_pass`, `id_tusuario`, `u_estado`)
         VALUES ('$usuario[nombre]', '$usuario[apaterno]', '$usuario[amaterno]', '$usuario[pais]', '$usuario[telefono]', '$usuario[fnac]', '$usuario[email]', '$usuario[pass]', 1, 'TRUE')";
@@ -121,8 +121,8 @@
         $conn->query($sql);
       }
       $conn->close();
-      sleep(3);
-      header('Location: index.php');
+      sleep(1);
+      //header('Location: index.php');
       //echo $sql;
       //echo "<br />";
       //$latitude = $_POST["latitude"];

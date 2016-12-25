@@ -43,7 +43,12 @@
       //+region+de+coquimbo&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
       //header('Location: menu.php');
     } else {
-      echo "<br /> error <br /> $sql <br />";
+      echo '
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>oops!</strong> Correo electrónico o contraseña incorrectos.
+      </div>
+      ';
       session_destroy();
       //header('Location: index.php');
     }
