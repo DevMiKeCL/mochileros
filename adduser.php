@@ -111,6 +111,10 @@
       VALUES ('$usuario[nombre]', '$usuario[apaterno]', '$usuario[amaterno]', '$usuario[pais]', '$usuario[telefono]', '$usuario[fnac]', '$usuario[email]', '$usuario[pass]', 1, 'TRUE')";
       echo "Usuario igresado";
       echo "<br />";
+      //se ejecuta y cierra la bbdd
+      $conn->query($sql);
+      $conn->close();
+
       //echo $sql;
       //echo "<br />";
       //$latitude = $_POST["latitude"];
@@ -128,9 +132,7 @@
       //center=San+Martin+1138,+coquimbo,+region+de+coquimbo&markers=color:blue%7Clabel:C%7CSan+Martin+1138,+coquimbo,
       //+region+de+coquimbo&zoom=17&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
 
-      // se ejecuta y cierra la bbdd
-      //$conn->query($sql);
-      //$conn->close();
+
       // guardamos la variable de session cliente
       //$_SESSION['usuario'] = $usuario;
       // cargamos el siguiente paso, crear equipo
