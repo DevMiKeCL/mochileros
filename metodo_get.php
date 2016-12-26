@@ -1,7 +1,7 @@
 <?php
   include 'session.php';
   // validamos si el usuario tiene permisos de cliente
-  if (isset($_SESSION['user']) && $_SESSION['user']['ID_TUSUARIO'] == 2) {
+  if (isset($_SESSION['user'])) {
     $usr = $_SESSION['user'];
     //var_dump($usr);
     //echo "<br />id tipo de usuario: ";
@@ -53,9 +53,34 @@
     <div class="container">
       <?php
         $lugar = $_GET['lugar'];
-        echo "$lugar";
-        include 'tabla_lugar.php';        
+        //echo "$lugar";
+        include 'tabla_lugar.php';
+
+        echo '<div class="row">
+        <div class="col-md-3">'.base64_decode($datoslugar["L_DESCRIPCION"]).'</div>
+        <div class="col-md-3"><h3 style="margin: 5px 0px; padding: 0px;"><strong>Servicios</strong></h3>';
+        include 'tabla_servicios.php';
+        echo '</div>';
+          echo '<div class="col-md-3"><h3 style="margin: 5px 0px; padding: 0px;"><strong>Ubicacion</strong></h3>';
+          //$destino = "-30.0307856,-70.6688829";
+          //$destino = str_replace(" ", "+", $destino);
+          //echo "$destino";
+          $u_actual = $_SESSION['ubicacion'];
+          //echo $datoslugar["L_LATITUD"];
+          //echo $datoslugar["L_LONGITUD"];
+          echo '
+          <a href="https://www.google.com/maps/dir/'.$u_actual['lat'].','.$u_actual['lon'].'/'.$datoslugar["L_LATITUD"].','.$datoslugar["L_LONGITUD"].'">
+          <img src="https://maps.googleapis.com/maps/api/staticmap?center=
+          '.$datoslugar["L_LATITUD"].','.$datoslugar["L_LONGITUD"].'&markers=color:red%7Clabel:C%7C'
+          .$datoslugar["L_LATITUD"].','.$datoslugar["L_LONGITUD"].'&zoom=15&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
+          echo '</div>';
+        echo '</div>';
+
        ?>
+
+    </div>
+    <div class="container">
+      <?php //include 'tabla_servicios.php'; ?>
     </div>
   </div>
     <script src="js/jquery.min.js"></script>
