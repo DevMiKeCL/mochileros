@@ -51,9 +51,13 @@
       </div>
     </div>
     <div class="container">
-        <h2>Lista de Lugares</h2>
-        <p>Lugares ingresados</p>
-        <?php include 'tabla_lugar.php'; ?>
+      <?php
+        $lugar = $_GET['lugar'];
+        echo "$lugar";
+        include 'tabla_lugar.php';        
+       ?>
+    </div>
+  </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
@@ -72,7 +76,6 @@
     }
 
     </script>
-    </div>
-  </div>
+
   </body>
 </html>
