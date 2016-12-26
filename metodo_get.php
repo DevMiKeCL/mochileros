@@ -50,13 +50,87 @@
         <?php include 'navbar.php'; ?>
       </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
+
       <?php
         $lugar = $_GET['lugar'];
         //echo "$lugar";
         include 'tabla_lugar.php';
+       ?>
+       <div class="row">
 
-        echo '<div class="row">
+      <div class="col-md-5">
+
+
+       <div id="myCarousel" class="carousel slide" data-ride="carousel">
+         <!-- Indicators -->
+         <ol class="carousel-indicators">
+           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+           <li data-target="#myCarousel" data-slide-to="1"></li>
+           <li data-target="#myCarousel" data-slide-to="2"></li>
+           <li data-target="#myCarousel" data-slide-to="3"></li>
+         </ol>
+
+         <!-- Wrapper for slides -->
+         <div class="carousel-inner" role="listbox">
+           <div class="item active">
+             <img src="img/pataguas/01.jpeg" alt="">
+           </div>
+
+           <div class="item">
+             <img src="img/pataguas/02.jpeg" alt="">
+           </div>
+
+           <div class="item">
+             <img src="img/pataguas/03.jpeg" alt="">
+           </div>
+
+           <div class="item">
+             <img src="img/pataguas/04.jpeg" alt="">
+           </div>
+         </div>
+
+         <!-- Left and right controls -->
+         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+           <span class="sr-only">Previous</span>
+         </a>
+         <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+           <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+           <span class="sr-only">Next</span>
+         </a>
+       </div>
+      <div class="alert-info text-right">
+        Visitas <span class="badge">42</span>
+        Calificacion <span class="badge">4,2</span>
+      </div>
+      <div class="text-right">
+        <div class="lead evaluation">
+            <div id="colorstar" class="starrr ratable" ></div>
+            <span id="count">0</span> star(s) - <span id="meaning"> </span>
+                <div class="indicators" style="display:none">
+                    <div id='textwr'>What went wrong?</div>
+                    <input id="rate[]" name="rate[]" type="text" placeholder="" class="form-control input-md" style="display:none;">
+                    <input id="rating[]" name="rating[]" type="text" placeholder="" class="form-control input-md rateval" style="display:none;">
+                    <span class="button-checkbox">
+                    <button type="button" class="btn criteria" data-color="info">Punctuallity</button>
+                     <input type="checkbox" class="hidden"  />
+                    </span>
+                    <span class="button-checkbox">
+                    <button type="button" class="btn criteria" data-color="info">Assistance</button>
+                     <input type="checkbox" class="hidden"  />
+                    </span>
+                    <span class="button-checkbox">
+                    <button type="button" class="btn criteria" data-color="info">Knowledge</button>
+                     <input type="checkbox" class="hidden"  />
+                    </span>
+                </div>
+    	</div>
+			</div>
+      </div>
+
+       <?php
+        echo '
         <div class="col-md-3">'.base64_decode($datoslugar["L_DESCRIPCION"]).'</div>
         <div class="col-md-3"><h3 style="margin: 5px 0px; padding: 0px;"><strong>Servicios</strong></h3>';
         include 'tabla_servicios.php';
@@ -74,9 +148,12 @@
           '.$datoslugar["L_LATITUD"].','.$datoslugar["L_LONGITUD"].'&markers=color:red%7Clabel:C%7C'
           .$datoslugar["L_LATITUD"].','.$datoslugar["L_LONGITUD"].'&zoom=15&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
           echo '</div>';
-        echo '</div>';
 
        ?>
+      </div>
+      <div class="row">
+        <div class="col-md-5">.col-md-5</div>
+      </div>
 
     </div>
     <div class="container">
@@ -86,6 +163,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/califica.js"></script>
     <!-- include summernote -->
     <script type="text/javascript" src="summernote/dist/summernote.js"></script>
     <!-- <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> -->
