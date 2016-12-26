@@ -2,7 +2,7 @@
   session_start();
   if (isset($_POST['cerrar'])) {
     session_destroy();
-    sleep(3);
+    sleep(1);
     header('Location: index.php');
   }
 

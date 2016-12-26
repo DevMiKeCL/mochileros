@@ -151,25 +151,36 @@
       //session_start();
       // capturamos los datos del post
       $usr = $_SESSION['user'];
-      echo "<br />";
-      var_dump($usr);
+      //echo "<br />";
+      //var_dump($usr);
       $lugar = $_POST['lugar'];
       $descripcion = base64_encode($_POST['content']);
       //$servicio = $_POST['servicio'];
-      echo "<br />";
-      var_dump($lugar);
-      echo "<br />";
-      var_dump($descripcion);
-      echo "<br />";
-      $sql = "INSERT INTO `Lugar` (`id_usuario`, `l_nombre`, `id_tipo`, `l_direccion`, `l_localidad`, `l_telefono`, `l_facebook`, `l_twitter`, `l_whatsapp`, `l_descripcion`, `l_comollegar`)
+      //echo "<br />";
+      //var_dump($lugar);
+      //echo "<br />";
+      //var_dump($descripcion);
+      //echo "<br />";
+      $sql = "INSERT INTO `LUGAR` (`id_usuario`, `l_nombre`, `id_tipo`, `l_direccion`, `l_localidad`, `l_telefono`, `l_facebook`, `l_twitter`, `l_whatsapp`, `l_descripcion`, `l_comollegar`)
       VALUES ('$usr[ID_USUARIO]', '$lugar[nombre]', '$lugar[tipo]', '$lugar[direccion]', '$lugar[localidad]', '$lugar[telefono]', '$lugar[facebook]', '$lugar[twitter]', '$lugar[whatsapp]', '$descripcion', '$lugar[comollegar]')";
       echo "Usuario igresado";
       echo "<br />";
       echo "$sql";
       echo "<br />";
+      $conn->query($sql);
+
+      echo "<br />";
+      //obtener id_lugar de tabla lugar
+      $sql4 = 'SELECT `ID_LUGAR` FROM `LUGAR` where `ID_USUARIO` = '.$usr['ID_USUARIO'].' order by `L_FECHA` desc LIMIT 0, 1';
+      echo "Preparando la captura del ID_LUGAR <br />";
+      echo $sql4;
+      $result = $conn->query($sql4);
+      $row = $result->fetch_assoc();
+      $id_lugar = $row["ID_LUGAR"];
+      echo "<br /> id de lugar: $id_lugar";
+      echo "<br />";
 
       $recepcion = $_POST['servicio'];
-
       //verificamos la integridad de la variable
       //var_dump($recepcion);
       $j = 0;
@@ -200,12 +211,21 @@
         $i = 0;
         $str = $recepcion2[$i];
       }
-      $sql1= 'INSERT INTO `servicio` (`'.$str.'`)';
-      $sql2= "VALUES ('$valores')";
+      $sql1= 'INSERT INTO `SERVICIO` (`ID_LUGAR`, `'.$str.'`)';
+      $sql2= "VALUES ('$id_lugar', '$valores')";
       // sql final
       $sql3 = $sql1. $sql2;
       // se ejecuta y cierra la bbdd
+      // almacenando en tabla servicio id_lugar junto a los servicios activos
       echo $sql3;
+      $conn->query($sql3);
+
+      //iniciarlizar la visita en 1
+      $sql5 = "INSERT INTO `VISITAS` (`id_usuario`, `id_lugar`)
+      VALUES ('$usr[ID_USUARIO]', '$id_lugar')";
+      echo "<br /> $sql5";
+      $conn->query($sql5);
+
       // se ejecuta y cierra la bbdd
       //$conn->query($sql);
       //$conn->close();
