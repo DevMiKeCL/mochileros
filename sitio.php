@@ -41,12 +41,14 @@
   		<div class="col-md-4">
         <h4>Ubicacion</h4>
         <?php
+          $destino = "-30.0307856,-70.6688829";
+          $destino = str_replace(" ", "+", $destino);
+          echo "$destino";
           $u_actual = $_SESSION['ubicacion'];
           echo '
-          <a href="https://www.google.com/maps/dir/'.$u_actual['lat'].','.$u_actual['lon'].'/-30.12128,-70.4957807">
+          <a href="https://www.google.com/maps/dir/'.$u_actual['lat'].','.$u_actual['lon'].'/'.$destino.'">
           <img src="https://maps.googleapis.com/maps/api/staticmap?center=
-          -30.12128,-70.4957807&markers=color:red%7Clabel:C%7C-30.12128,
-          -70.4957807&zoom=15&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
+          '.$destino.'&markers=color:red%7Clabel:C%7C'.$destino.'&zoom=15&size=300x300&key=AIzaSyCqcJU-uy_Clf9DD1DQ4ROyTEzQf-UWuLo"></a>';
 
          ?>
         </form>

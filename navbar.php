@@ -57,30 +57,16 @@
         echo '<li class="dropdown">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hola '.$user['U_NOMBRE'].'<strong class="caret"></strong></a>
           <ul class="dropdown-menu">
-            <form action="index.php" method="post">
-              <li>
-                <button class="btn btn-block" type="submit" id="cerrar" name="cerrar">Cerrar Sesion</button>
-              </li>
-            </form>
             <li class="divider">
-            </li>
-            <li>
-            <form class="" action="locate.php" method="post">
-              <input type="hidden" id="latitude" name="loc[lat]" value="" />
-              <input type="hidden" id="longitude" name="loc[lon]" value="" />
-              <input type="hidden" id="accuracy" name="loc[acu]" value="" />
-                <button class="btn btn-primary btn-block" type="submit" id="localizar" name="localizar">
-                  Localizar
-                </button>
-            </form>
             </li>';
             if ($user['ID_TUSUARIO'] == 2) {
               echo '<li>
                 <a href="addplace.php">Crear Lugar</a>
-              </li></ul>';
-            } else {
-              echo '</ul>';
+              </li>';
             }
+            echo '<li>
+              <a href="close.php">Cerrar sesion</a>
+            </li></ul>';
         ?>
 
       <?php else:

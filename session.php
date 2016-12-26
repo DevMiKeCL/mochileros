@@ -1,16 +1,41 @@
 <?php
   session_start();
-  if (isset($_POST['cerrar'])) {
-    session_destroy();
-    sleep(1);
-    header('Location: index.php');
+
+  if (isset($_POST['relocalizar'])) {
+    include 'conexion.php';
+    $loc = $_POST['reloc'];
+    //var_dump($loc);
+    $usr = $_SESSION['user'];
+    // preguntamos si los datos de gps fueron cargados correctamente
+    if ($loc['lat'] != "") {
+      $loc['ip'] = $_SERVER['REMOTE_ADDR'];
+      //var_dump($loc);
+      $sqlub = "INSERT INTO `UBICACION_ACTUAL` (`id_usuario`, `ub_ip`, `ub_latitud`, `ub_longitud`, `ub_exactitud`)
+      VALUES ('$usr[ID_USUARIO]', '$loc[ip]', '$loc[lat]', '$loc[lon]', '$loc[acu]')";
+      $conn->query($sqlub);
+      $_SESSION['ubicacion'] = $loc;
+      echo '
+      <div class="alerta-autoclose alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong></strong> Datos gps cargados.
+      </div>
+      ';
+    } else {
+      echo '<div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Advertencia</strong> Active el gps de tu dispositivo e intente nuevamente.
+        <form class="" action="index.php" method="post">
+          <input type="hidden" id="latitude" name="reloc[lat]" value="" />
+          <input type="hidden" id="longitude" name="reloc[lon]" value="" />
+          <input type="hidden" id="accuracy" name="reloc[acu]" value="" />
+            <button class="btn btn-waring btn-sm" type="submit" id="relocalizar" name="relocalizar">
+              Localizar
+            </button>
+        </form>
+      </div>';
+    }
   }
 
-  //if (isset($_SESSION['user'])) {
-    //echo "variable cargada";
-  //}else {
-  //  header('Location: index.php');
-  //}
   if (isset($_POST['iniciar'])) {
     include 'conexion.php';
     //se almacena en $usuario lo capturado en el form
@@ -25,12 +50,38 @@
       sleep(1);
       // guardamos nuestra localizacion actual
       $loc = $_POST['geo'];
-      $loc['ip'] = $_SERVER['REMOTE_ADDR'];
       //var_dump($loc);
-      $sqlub = "INSERT INTO `UBICACION_ACTUAL` (`id_usuario`, `ub_ip`, `ub_latitud`, `ub_longitud`, `ub_exactitud`)
-      VALUES ('$usr[ID_USUARIO]', '$loc[ip]', '$loc[lat]', '$loc[lon]', '$loc[acu]')";
-      $conn->query($sqlub);
-      $_SESSION['ubicacion'] = $loc;
+
+      // preguntamos si los datos de gps fueron cargados correctamente
+      if ($loc['lat'] != "") {
+        $loc['ip'] = $_SERVER['REMOTE_ADDR'];
+        //var_dump($loc);
+        $sqlub = "INSERT INTO `UBICACION_ACTUAL` (`id_usuario`, `ub_ip`, `ub_latitud`, `ub_longitud`, `ub_exactitud`)
+        VALUES ('$usr[ID_USUARIO]', '$loc[ip]', '$loc[lat]', '$loc[lon]', '$loc[acu]')";
+        $conn->query($sqlub);
+        $_SESSION['ubicacion'] = $loc;
+        echo '
+        <div class="alerta-autoclose alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong></strong> Datos gps cargados.
+        </div>
+        ';
+      } else {
+        echo '<div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Advertencia</strong> Active el gps de tu dispositivo e intente nuevamente.
+          <form class="" action="index.php" method="post">
+            <input type="hidden" id="latitude" name="reloc[lat]" value="" />
+            <input type="hidden" id="longitude" name="reloc[lon]" value="" />
+            <input type="hidden" id="accuracy" name="reloc[acu]" value="" />
+              <button class="btn btn-waring btn-sm" type="submit" id="relocalizar" name="relocalizar">
+                Localizar
+              </button>
+          </form>
+        </div>';
+      }
+
+
 
       //echo "variable de session: <br />";
       //var_dump($_SESSION['ubicacion']);
