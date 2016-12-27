@@ -44,10 +44,10 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <a href="index.html"> <img class="flag" src="img/Chile.png"> </a>
+        <a href="https://www.mochileroschile.cl/index.php"> <img class="flag" src="img/Chile.png"> </a>
       </li>
       <li>
-        <a href="index.html"> <img class="flag" src="img/United States.png"> </a>
+        <a href="en/index.php"> <img class="flag" src="img/United States.png"> </a>
       </li>
       <!-- <li>
         <a href="index.html"> <img class="flag" src="img/Brazil.png"> </a>

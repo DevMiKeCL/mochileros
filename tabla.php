@@ -12,10 +12,11 @@
                 <tr>
                   <th>ID</th>
                   <th>Nombre</th>
+                  <th>INGLES</th>
                 </tr>
               </thead><tbody>';
           while($rows = $resultado->fetch_assoc()) {
-            echo '<tr><td>'.$rows["ID_LSERVICIO"].' </td><td>'.$rows["LS_NOMBRE"].'</td></tr>' ;
+            echo '<tr><td>'.$rows["ID_LSERVICIO"].' </td><td>'.$rows["LS_NOMBRE"].'</td><td>'.$rows["LS_ENG"].'</td></tr>';
           }
           echo '</tbody>
             </table>';

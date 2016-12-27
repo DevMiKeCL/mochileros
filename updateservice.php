@@ -32,8 +32,8 @@
         </div>
         <div class='row contenido2'>
           <div class='col-md-3'></div>
-          <div class='col-md-2'><b>Nuevo Nombre</b></div>
-          <div class='col-md-2'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[nombre]" required></div>
+          <div class='col-md-2'><b>Traduccion</b></div>
+          <div class='col-md-2'><input type="text" class="form-control" onkeypress="return validar(event)" name="datos[traduccion]" required></div>
           <div class='col-md-2'></div>
         </div>
         <div class='row pie'>
@@ -47,10 +47,9 @@
       // conectamos a la base de datos
       include 'conexion.php';
       // iniciamos session
-      session_start();
       // capturamos los datos del post
       $servicio = $_POST['datos'];
-      $sql = "UPDATE `lista_servicio` SET `LS_NOMBRE` = '$servicio[nombre]' WHERE `lista_servicio`.`ID_LSERVICIO` = $servicio[id]";
+      $sql = "UPDATE `LISTA_SERVICIO` SET `LS_ENG` = '$servicio[traduccion]' WHERE `LISTA_SERVICIO`.`ID_LSERVICIO` = $servicio[id]";
       //$sql = "DELETE FROM `lista_servicio` WHERE `ID_LSERVICIO` = $servicio[id]";
       echo "Servicio actualizado";
       echo "<br />";
@@ -59,7 +58,7 @@
       $conn->query($sql);
       $conn->close();
       // guardamos la variable de session cliente
-      $_SESSION['servicio'] = $servicio;
+      //$_SESSION['servicio'] = $servicio;
       // cargamos el siguiente paso, crear equipo
       //header('Location: crear_equipo.php');
       ?>
