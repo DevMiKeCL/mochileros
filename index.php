@@ -64,7 +64,7 @@
 								MONTAÑAS DE ELQUI
 							</h4>
 							<p class="slide">
-								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+								Ubicadas en la comuna de Paihuano, ofrece un hermoso lugar para descansar, con piscina y rodeado por la tranquilidad de las montañas.
 							</p>
 						</div>
 					</div>
@@ -75,7 +75,7 @@
 								LAS PATAGUAS
 							</h4>
 							<p class="slide">
-								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+								Ubicado en el centro de la localidad del Arenal, a tan solo 6km de Vicuña camino a Pisco Elqui.
 							</p>
 						</div>
 					</div>
