@@ -28,6 +28,7 @@
 				<h2>
 					¡BIENVENIDO A MOCHILEROS CHILE!
 				</h2>
+        
 				<p>
           En éste lugar encontrarás toda la información que necesitas acerca de sitios de camping, restaurantes u otros servicios.
 				</p>
