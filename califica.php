@@ -3,19 +3,21 @@
   // validamos si el usuario tiene permisos de cliente
   if (isset($_SESSION['user'])) {
     $usr = $_SESSION['user'];
+    $lugar = $_SESSION['lugar'];
+
     //var_dump($usr);
+    //var_dump($lugar);
     //echo "<br />id tipo de usuario: ";
     //echo $usr['ID_TUSUARIO'];
     //echo "usuario puede crear lugares <br />";
   }else {
     header('Location: index.php');
   }
-  if (isset($_POST['confirmar'])) {
-    $rate = $_POST['rate'];
-    $rating = $_POST['rating'];
-    var_dump($rate);
-    var_dump($rating);
 
+  if (isset($_POST['califica'])) {
+    $rating = $_POST['rating'];
+    $sqlr ="INSERT INTO `CALIFICACION`(`ID_USUARIO`, `ID_LUGAR`, `C_VALOR`) VALUES ('$usr[ID_USUARIO]','$lugar','$rating')";
+    echo "$sqlr";
   }
  ?>
 <!DOCTYPE html>
@@ -31,6 +33,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="summernote/dist/summernote.css">
+    <link rel="stylesheet" type="text/css" href="css/ratingstar.css" />
     <style type="text/css">
       body {
         padding-top: 0px;
@@ -63,39 +66,37 @@
         //echo "$lugar";
 
        ?>
-       <div class="row">
-
-      <div class="col-md-5">
-      <div class="alert-info text-right">
-        Visitas <span class="badge">42</span>
-        Calificacion <span class="badge">4,2</span>
-      </div>
-      <div class="text-right">
-        <div class="lead evaluation">
-            <div id="colorstar" class="starrr ratable" ></div>
-            <span id="count">0</span> star(s) - <span id="meaning"> </span>
-                <div class="indicators" style="display:none">
-                    <div id='textwr'>What went wrong?</div>
-                    <form class="" action="califica.php" method="post">
-                      <input id="contador" name="rate[]" type="text" placeholder="" class="form-control input-md" style="display:none;">
-                      <?php  ?>
-                      <input id="rating[]" name="rating[]" type="text" placeholder="" class="form-control input-md rateval" style="display:none;">
-                      <span class="button">
-                      <button type="submit" class="btn" name="confirmar">confirmar</button>
-                      </span>
-                    </form>
-                </div>
-
-    	</div>
-			</div>
-      </div>
-
-
+      <div class="row">
+        <div class="alert-info col-md-5 text-center">
+          Visitas <span class="badge">42</span>
+          Calificacion <span class="badge">4,2</span>
+        </div>
       </div>
       <div class="row">
-        <div class="col-md-5">.col-md-5</div>
+        <div class="col-md-2">
+        </div>
+          <div class="col-md-3">
+            <form action="califica.php" method="post">
+              <fieldset>
+                <span class="star-cb-group">
+                  <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
+                  <input type="radio" id="rating-4" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
+                  <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
+                  <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
+                  <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
+                  </span>
+              </fieldset>
+
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5 text-center">
+          <button class="btn btn-primary btn-xs" type="submit" name="califica">Calificar</button></div>
+          </form>
+        </div>
       </div>
 
+    </div>
     </div>
     <div class="container">
       <?php //include 'tabla_servicios.php'; ?>
@@ -109,15 +110,13 @@
     <script type="text/javascript" src="summernote/dist/summernote.js"></script>
     <!-- <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> -->
     <script type="text/javascript">
-
-    $(document).ready(function() {
-      $('#summernote').summernote({
-        height: "500px"
+    var logID = 'log',
+      log = $('<div id="'+logID+'"></div>');
+    $('body').append(log);
+      $('[type*="radio"]').change(function () {
+        var me = $(this);
+        log.html(me.attr('value'));
       });
-    });
-    var postForm = function() {
-      var content = $('textarea[name="content"]').php($('#summernote').code());
-    }
     </script>
 
   </body>
