@@ -115,6 +115,9 @@
        ?>
        <div class="row">
          <div class="col-md-5">
+           <div class=""><h2>
+             <?php echo $datoslugar["L_NOMBRE"]; ?></h2>
+           </div>
            <div id="myCarousel" class="carousel slide" data-ride="carousel">
            <!-- Indicators -->
            <ol class="carousel-indicators">

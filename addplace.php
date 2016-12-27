@@ -166,7 +166,7 @@
       echo "Lugar igresado";
       //echo "<br />";
       //echo "$sql";
-      echo "<br />";
+      //echo "<br />";
       $conn->query($sql);
       //echo "<br />";
       //obtener id_lugar de tabla lugar

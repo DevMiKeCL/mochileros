@@ -28,7 +28,7 @@
 				<h2>
 					¡BIENVENIDO A MOCHILEROS CHILE!
 				</h2>
-        
+
 				<p>
           En éste lugar encontrarás toda la información que necesitas acerca de sitios de camping, restaurantes u otros servicios.
 				</p>
@@ -105,7 +105,7 @@
 				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
 			</p>
 			<p>
-				<a class="btn" href="#">View details »</a>
+				<a class="btn" href="contenido.php?lugar=2">Ver Detalles »</a>
 			</p>
 		</div>
 		<div class="col-md-4">
@@ -116,7 +116,7 @@
 				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
 			</p>
 			<p>
-				<a class="btn" href="#">View details »</a>
+				<a class="btn" href="contenido.php?lugar=1">Ver Detalles »</a>
 			</p>
 		</div>
 	</div>
