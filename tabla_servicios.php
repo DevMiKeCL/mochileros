@@ -4,7 +4,7 @@
   // se ejecuta consulta sql y capturan resultados en $result
   $sqls = "SELECT * FROM `LISTA_SERVICIO`";
   $resultado = $conn->query($sqls);
-  $sqlserv = "SELECT * FROM `SERVICIO` WHERE ID_LUGAR = $lugar order by `S_FECHA` desc LIMIT 0, 1";
+  $sqlserv = "SELECT * FROM `SERVICIO` WHERE ID_LUGAR = '$lugar' order by `S_FECHA` desc LIMIT 0, 1";
   $resultado2 = $conn->query($sqlserv);
   //var_dump($resultado2);
   $estado = $resultado2->fetch_assoc();

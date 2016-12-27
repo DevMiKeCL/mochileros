@@ -1,14 +1,10 @@
 <?php
   //include 'session.php';
   //echo "Cargando variables: <br />";
-  $loc = $_SESSION['ubicacion'];
-  //var_dump($loc);
-  //echo "<br />";
-  $usr = $_SESSION['user'];
-  //var_dump($usr);
+  //$loc = $_SESSION['ubicacion'];
   $lugar = $_SESSION['lugar'];
   include 'conexion.php';
-  $sql = 'SELECT * FROM `VISITAS` where `ID_USUARIO` = '.$usr['ID_USUARIO'].' AND `ID_LUGAR` = '.$lugar.' order by `V_FECHA` desc LIMIT 0, 1';
+  $sql = "SELECT * FROM `VISITAS` where `V_IP` = '$ip' AND `ID_LUGAR` = '$lugar' order by `V_FECHA` desc LIMIT 0, 1";
   //$sql2 = 'SELECT * FROM `UBICACION_ACTUAL` where `ID_USUARIO` = '.$usr['id'].' order by `UB_FECHA` desc LIMIT 0, 1';
   //echo "$sql";
   $result = $conn->query($sql);
@@ -30,8 +26,8 @@
       //echo "<br />";
       if ($minutos > 60) {
         //echo "Es hora de cargar una visita nueva";
-        $sql = "INSERT INTO `VISITAS` (`id_usuario`, `id_lugar`)
-        VALUES ('$usr[ID_USUARIO]', '$lugar')";
+        $sql = "INSERT INTO `VISITAS` (`V_IP`, `ID_LUGAR`)
+        VALUES ('$ip', '$lugar')";
         //echo "<br />";
         //echo "$sql";
         $conn->query($sql);
@@ -41,8 +37,8 @@
 
     } else {
       //echo "primera visita";
-      $sql = "INSERT INTO `VISITAS` (`id_usuario`, `id_lugar`)
-      VALUES ('$usr[ID_USUARIO]', '$lugar')";
+      $sql = "INSERT INTO `VISITAS` (`V_IP`, `ID_LUGAR`)
+      VALUES ('$ip', '$lugar')";
       //echo "<br />";
       //echo "$sql";
       $conn->query($sql);

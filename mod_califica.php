@@ -1,11 +1,10 @@
 <?php
     $rating = $_POST['rating'];
     $lugar = $_SESSION['lugar'];
-    $loc = $_SESSION['ubicacion'];
-    $usr = $_SESSION['user'];
-    $lugar = $_SESSION['lugar'];
+    //$loc = $_SESSION['ubicacion'];
+    //$lugar = $_SESSION['lugar'];
     include 'conexion.php';
-    $sql = 'SELECT * FROM `CALIFICACION` where `ID_USUARIO` = '.$usr['ID_USUARIO'].' AND `ID_LUGAR` = '.$lugar.' order by `C_FECHA` desc LIMIT 0, 1';
+    $sql = "SELECT * FROM `CALIFICACION` where `C_IP` = '$ip' AND `ID_LUGAR` = '$lugar' order by `C_FECHA` desc LIMIT 0, 1";
     //$sql2 = 'SELECT * FROM `UBICACION_ACTUAL` where `ID_USUARIO` = '.$usr['id'].' order by `UB_FECHA` desc LIMIT 0, 1';
     //echo "<br />";
     //echo "$sql";

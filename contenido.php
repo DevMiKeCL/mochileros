@@ -1,28 +1,20 @@
 <?php
   include 'session.php';
   // validamos si el usuario tiene permisos de cliente
-  if (isset($_SESSION['user'])) {
-    $usr = $_SESSION['user'];
-    //var_dump($usr);
-    //echo "<br />id tipo de usuario: ";
-    //echo $usr['ID_TUSUARIO'];
-    //echo "usuario puede crear lugares <br />";
-  }else {
-    header('Location: index.php');
-  }
+  $ip = $_SERVER['REMOTE_ADDR'];
 
   if (isset($_POST['califica'])) {
     $rating = $_POST['rating'];
     $lugar = $_SESSION['lugar'];
     //echo "Cargando variables: <br />";
-    $loc = $_SESSION['ubicacion'];
+    //$loc = $_SESSION['ubicacion'];
     //var_dump($loc);
     //echo "<br />";
-    $usr = $_SESSION['user'];
+    //$usr = $_SESSION['user'];
     //var_dump($usr);
-    $lugar = $_SESSION['lugar'];
+    //$lugar = $_SESSION['lugar'];
     include 'conexion.php';
-    $sql = 'SELECT * FROM `CALIFICACION` where `ID_USUARIO` = '.$usr['ID_USUARIO'].' AND `ID_LUGAR` = '.$lugar.' order by `C_FECHA` desc LIMIT 0, 1';
+    $sql = "SELECT * FROM `CALIFICACION` where `C_IP` = '$ip' AND `ID_LUGAR` = '$lugar' order by `C_FECHA` desc LIMIT 0, 1";
     //$sql2 = 'SELECT * FROM `UBICACION_ACTUAL` where `ID_USUARIO` = '.$usr['id'].' order by `UB_FECHA` desc LIMIT 0, 1';
     //echo "<br />";
     //echo "$sql";
@@ -45,7 +37,7 @@
         //echo "<br />";
         if ($minutos > 60) {
           //echo "Es hora de cargar una nueva calificacion";
-          $sqlr ="INSERT INTO `CALIFICACION`(`ID_USUARIO`, `ID_LUGAR`, `C_VALOR`) VALUES ('$usr[ID_USUARIO]','$lugar','$rating')";
+          $sqlr ="INSERT INTO `CALIFICACION`(`C_IP`, `ID_LUGAR`, `C_VALOR`) VALUES ('$ip','$lugar','$rating')";
           //echo "$sqlr";
           //echo "<br />";
           $conn->query($sqlr);
@@ -57,7 +49,7 @@
         //echo "<br />";
         //echo "primera calificacion";
         //echo "<br />";
-        $sqlr ="INSERT INTO `CALIFICACION`(`ID_USUARIO`, `ID_LUGAR`, `C_VALOR`) VALUES ('$usr[ID_USUARIO]','$lugar','$rating')";
+        $sqlr ="INSERT INTO `CALIFICACION`(`C_IP`, `ID_LUGAR`, `C_VALOR`) VALUES ('$ip','$lugar','$rating')";
         //echo "$sqlr";
         //echo "<br />";
         $conn->query($sqlr);
