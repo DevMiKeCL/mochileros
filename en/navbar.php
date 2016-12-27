@@ -9,10 +9,10 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li class="active">
-        <a href="#">Acerca de</a>
+        <a href="#">About</a>
       </li>
       <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias<strong class="caret"></strong></a>
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<strong class="caret"></strong></a>
         <ul class="dropdown-menu">
           <li>
             <a href="#">Cámpines</a>
@@ -36,10 +36,10 @@
     </ul>
     <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
-        <input placeholder="Busca tu sitio"type="text" class="form-control">
+        <input placeholder="Search your site"type="text" class="form-control">
       </div>
       <button type="submit" class="btn btn-default">
-        Buscar
+        Search
       </button>
     </form>
     <ul class="nav navbar-nav navbar-right">
@@ -72,21 +72,21 @@
       <?php else:
         echo '
         <li class="dropdown">
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ingresa/Registrate<strong class="caret"></strong></a>
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login/Register<strong class="caret"></strong></a>
           <ul class="dropdown-menu">
             <form action="index.php" method="post">
               <li>
                 <input type="hidden" id="latitude" name="geo[lat]" value="" />
                 <input type="hidden" id="longitude" name="geo[lon]" value="" />
                 <input type="hidden" id="accuracy" name="geo[acu]" value="" />
-                <input type="email" class="form-control" placeholder="correo electronico" name="usuario[email]" required>
+                <input type="email" class="form-control" placeholder="email" name="usuario[email]" required>
               </li>
               <li>
-                <input type="password" class="form-control" placeholder="Contraseña" name="usuario[pass]" required>
+                <input type="password" class="form-control" placeholder="password" name="usuario[pass]" required>
               </li>
               <li>
                 <button class="btn btn-primary btn-block" type="submit" id="iniciar" name="iniciar">
-                  Aceptar
+                  Login
                 </button>
             </form>
                 <!-- <button type="submit" class="btn btn-default">
@@ -96,7 +96,7 @@
               <li class="divider">
               </li>
               <li>
-                <a href="adduser.php">Registro Usuarios Nuevos</a>
+                <a href="adduser.php">New user</a>
               </li>
               <li class="divider">
               </li>

@@ -63,7 +63,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agregar Lugar</title>
+    <title>MOCHILEROS CHILE</title>
     <!-- <meta name="description" content="Source code generated using layoutit.com">
     <meta name="ElChitoSeLaCome" content="LayoutIt!"> -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -149,8 +149,8 @@
            </a>
            </div>
            <div class="alert-info text-center">
-             Visitas <span class="badge"><?php include 'mod_visita.php' ?></span>
-             Calificacion <span class="badge"><?php include 'mod_promedio.php' ?></span>
+             Visits <span class="badge"><?php include 'mod_visita.php' ?></span>
+             Rating <span class="badge"><?php include 'mod_promedio.php' ?></span>
            </div>
            <div class="col-md-5 col-xs-5">
 
@@ -161,10 +161,10 @@
        <?php
         echo '
         <div class="col-md-3">'.base64_decode($datoslugar["L_DESCRIPCION"]).'</div>
-        <div class="col-md-3"><h3 style="margin: 5px 0px; padding: 0px;"><strong>Servicios</strong></h3>';
+        <div class="col-md-3"><h3 style="margin: 5px 0px; padding: 0px;"><strong>Services</strong></h3>';
         include 'tabla_servicios.php';
         echo '</div>';
-          echo '<div class="col-md-2 alert alert-info"><h3 style="margin: 5px 0px; padding: 0px;"><strong>Ubicacion</strong></h3>';
+          echo '<div class="col-md-2 alert alert-info"><h3 style="margin: 5px 0px; padding: 0px;"><strong>Location</strong></h3>';
           //$destino = "-30.0307856,-70.6688829";
           //$destino = str_replace(" ", "+", $destino);
           //echo "$destino";

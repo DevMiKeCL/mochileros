@@ -94,7 +94,7 @@
 				Cabañas de dos a cinco personas diseñadas para el descanso familiar, en un ambiente de tranquilidad, paz y relajación. Ubicadas en el poblado de Pisco Elqui a solo una cuadra de la Plaza de Armas.
 			</p>
 			<p>
-				<a class="btn" href="#">View details »</a>
+				<a class="btn" href="#">Ver Detalles »</a>
 			</p>
 		</div>
 		<div class="col-md-4">
@@ -102,7 +102,7 @@
 				Montañas de Elqui
 			</h2>
 			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+				Ubicadas en la comuna de Paihuano, ofrece un hermoso lugar para descansar, con piscina y rodeado por la tranquilidad de las montañas.
 			</p>
 			<p>
 				<a class="btn" href="contenido.php?lugar=2">Ver Detalles »</a>
@@ -113,7 +113,7 @@
 				Las Pataguas
 			</h2>
 			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+				Ubicado en el centro de la localidad del Arenal, a tan solo 6km de Vicuña camino a Pisco Elqui.
 			</p>
 			<p>
 				<a class="btn" href="contenido.php?lugar=1">Ver Detalles »</a>

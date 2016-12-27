@@ -40,11 +40,11 @@
               </fieldset>
           </div>
           <div class="text-center">
-            <button class="btn btn-primary btn-xs" type="submit" name="califica">Calificar</button></form>
+            <button class="btn btn-primary btn-xs" type="submit" name="califica">Rate</button></form>
             </div>';
         }else {
-          echo '<div class="text-center alert-warning">
-            Ya has calificado este sitio, gracias!
+          echo '<div class="alert-warning">
+            You are succesfully rated this site, thanks.
             </div>';
         }
       } else {

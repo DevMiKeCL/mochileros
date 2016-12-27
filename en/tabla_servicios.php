@@ -21,7 +21,7 @@
         //}else {
         //echo $rows["LS_NOMBRE"].' '.$rows["NOM_COLUMNA"].' '.$estado["$rows[NOM_COLUMNA]"];
         if ($estado["$rows[NOM_COLUMNA]"] == 1) {
-          echo '<li>'.$rows["LS_NOMBRE"].'</li>';
+          echo '<li>'.$rows["LS_ENG"].'</li>';
         }
 
         //}
