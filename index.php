@@ -126,9 +126,7 @@
         <div class="row">
           <div class="col-sm-6">
             <h1>SINAPSIS</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisici elit,
-              <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-              <br>Ut enim ad minim veniam, quis nostrud</p>
+            <p>Sinapsis Ingenieria</p>
           </div>
           <div class="col-sm-6">
             <p class="text-info text-right">
