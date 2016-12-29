@@ -41,7 +41,7 @@
       <form action="adduser.php" method="post" class="form-horizontal">
         <div class='row encabezado'>
           <div class='col-md-3'></div>
-          <div class='col-md-2'><h3>Crear Usuario</h3></div>
+          <div class='col-md-2'><h3>Registro</h3></div>
           <div class='col-md-2'></div>
           <div class='col-md-2'></div>
         </div>

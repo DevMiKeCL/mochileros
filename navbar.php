@@ -61,7 +61,10 @@
             </li>';
             if ($user['ID_TUSUARIO'] == 2) {
               echo '<li>
-                <a href="addplace.php">Crear Lugar</a>
+                <a href="addplace.php">Crear sitio</a>
+              </li>
+              <li>
+                <a href="#">Mis Sitios</a>
               </li>';
             }
             echo '<li>

@@ -164,7 +164,7 @@
         <div class="col-md-3"><h3 style="margin: 5px 0px; padding: 0px;"><strong>Services</strong></h3>';
         include 'tabla_servicios.php';
         echo '</div>';
-          echo '<div class="col-md-2 alert alert-info"><h3 style="margin: 5px 0px; padding: 0px;"><strong>Location</strong></h3>';
+          echo '<div class="col-md-2"><h3 style="margin: 5px 0px; padding: 0px;"><strong>Location</strong></h3>';
           //$destino = "-30.0307856,-70.6688829";
           //$destino = str_replace(" ", "+", $destino);
           //echo "$destino";

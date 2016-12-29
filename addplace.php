@@ -53,7 +53,7 @@
     <?php if (!isset($_POST['crear_lugar'])): ?>
       <form action="addplace.php" method="POST" id="postForm" enctype="multipart/form-data" onsubmit="return postForm()">
         <div class='row encabezado'>
-          <div class='col-md-6'><h3>Crear Lugar</h3></div>
+          <div class='col-md-6'><h3>Crear Sitio</h3></div>
           <div class='col-md-6'></div>
         </div>
         <div class='row contenido2'>
